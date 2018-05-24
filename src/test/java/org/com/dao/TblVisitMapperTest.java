@@ -1,0 +1,21 @@
+package org.com.dao;
+
+import org.com.entity.TblVisit;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import static org.junit.Assert.*;
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:spring-config.xml"})
+public class TblVisitMapperTest {
+    @Autowired
+    TblVisitMapper tblVisitMapper;
+    @Test
+    public void selectByExample() {
+        TblVisit tblVisit = tblVisitMapper.selectByPrimaryKey(1);
+        System.out.println(tblVisit.getVisDescription());
+    }
+}
