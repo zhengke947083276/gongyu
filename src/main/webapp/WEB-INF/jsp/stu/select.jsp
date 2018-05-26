@@ -105,20 +105,19 @@
 								   <c:choose>
 									  <c:when test="${tblStudent.stuState==1}">
 										  <%--<a href="/stu/update?stuId=${tblStudent.stuId}"></a>入校--%>
-										  <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3">修改为毕业状态</a>&nbsp;&nbsp;
-										  添加入住信息&nbsp;&nbsp;
+										  <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3">修改为毕业状态</a>
 									  </c:when>
 									  <c:when test="${tblStudent.stuState==2}">
 										  <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3">修改为毕业状态</a>&nbsp;&nbsp;
-										  <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1">修改为入校状态</a>&nbsp;&nbsp;
-										  查看学生相关信息
+										  <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1">修改为入校状态</a>
 									  </c:when>
 									  <c:when test="${tblStudent.stuState==3}">
 										  <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1">修改为入校状态</a>&nbsp;&nbsp;
-										  添加入住信息&nbsp;&nbsp;
+										  <a href="/stu/delete?stuId=${tblStudent.stuId}">删除</a>
+
 									  </c:when>
 								  </c:choose>
-							  <a href="/stu/delete?stuId=${tblStudent.stuId}">删除</a>
+							  完善学生信息
 						  </td>
 					  </tr>
 				  </c:forEach>

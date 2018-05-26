@@ -41,9 +41,11 @@ public class Adm {
             response.addCookie(admUserCookie);
             response.addCookie(admPassCookie);
         }
-        TblAdministrator tblAdministrator1 = tblAdministratorService.administratorLogin(admUser,admPass);
-        if (tblAdministrator1!=null){
-            session.setAttribute("user",tblAdministrator1);
+        System.out.println(admUser+" "+admPass);
+        TblAdministrator tblAdministrator = tblAdministratorService.administratorLogin(admUser,admPass);
+        System.out.println("================="+tblAdministrator);
+        if (tblAdministrator!=null){
+            session.setAttribute("user",tblAdministrator);
         }
         return "index";// /WEB-INF/**.jsp
     }

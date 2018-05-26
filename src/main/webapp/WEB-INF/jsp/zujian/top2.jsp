@@ -28,8 +28,8 @@
                 var second = myDate.getSeconds();
                 var min = checkTime(minute);
                 var sec = checkTime(second);
-                var time1 = year + "年" + month + "月" + date + "日";
-                var time2 = hour + "：" + min + "：" + sec;
+                var time1 = year + "年" + month + "月" + date + "日 ";
+                var time2 = " "+hour + ":" + min + ":" + sec;
                 // document.write(time1+day+time2);
                 //用js方法
                 // document.getElementById("time").innerHTML = time1+day+time2;

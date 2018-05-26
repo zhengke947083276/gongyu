@@ -28,11 +28,6 @@
 			<li role="presentation">
 				<a href="/stu/add">学生信息添加</a>
 			</li>
-
-			<li role="presentation">
-				<a href="#">学生信息修改</a>
-			</li>
-
 			<li role="presentation">
 				<a href="/stu/select">学生信息查询</a>
 			</li>
@@ -49,14 +44,6 @@
 			<li role="presentation">
 				<a href="/che/add">入住信息添加</a>
 			</li>
-
-			<li role="presentation">
-				<a href="#">入住信息修改</a>
-			</li>
-			<li role="presentation">
-				<a href="#">入住信息更新</a>
-			</li>
-
 			<li role="presentation">
 				<a href="/che/selectAll">入住信息查询</a>
 			</li>

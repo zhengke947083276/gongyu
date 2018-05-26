@@ -126,6 +126,18 @@
   <%@include file="/WEB-INF/jsp/adm/login.jsp"%>
   <%@include file="/WEB-INF/jsp/adm/update.jsp"%>
   <div id="all">
+	  <div style="position: absolute;margin-top: 230px;margin-left: 300px;">
+		  批量添加
+		  <form role="form" action="/stu/importStudent" method="POST" enctype="multipart/form-data">
+			  <div>
+				  <label for="file">上传文件</label>
+				  <input type="file"  name="file">
+			  </div>
+			  <input type="submit">提交</input>
+		  </form>
+	  </div>
+
+
 	  <%@include file="/WEB-INF/jsp/zujian/top1.jsp"%>
 	  <%@include file="/WEB-INF/jsp/zujian/top2.jsp"%>
 	  <%--<jsp:include page="${pageContext.servletContext.contextPath}/WEB-INF/jsp/zujian/top1.jsp"/>--%>
@@ -135,7 +147,7 @@
 		  <%--<jsp:include page="${pageContext.servletContext.contextPath}/WEB-INF/jsp/zujian/left.jsp"/>--%>
 		  <div class="b_2" style="width: 1310px;height: 650px">
 		  <h1 style="text-align:center;">添加学生</h1>
-			  <form action="/stu/insert" method="post" enctype="multipart/form-data">
+			  <form action="/stu/addUpload" method="post" enctype="multipart/form-data">
 				  <table border="1" cellspacing="0" cellpadding="10" align="center" style="text-align: center;">
 					  <tr>
 						  <td>学号</td>
@@ -203,24 +215,25 @@
 							  <%--</tr>--%>
 							  <%--</form>--%>
 							  <input type="file" name="file" id="file"/>
-							  <input type="button" onclick="upload()" value="文件上传"></td>
-						  <script type="text/javascript">
-							  function upload() {
-								 var file =  $("#file").val();
-								  alert(file);
-								  $.ajax({
-									  url:"/stu/upload",
-                                      type:"post",
-                                      contentType : "application/x-www-form-urlencoded; charset=utf-8",
-                                      // data:"file="+file,
-                                      success:function (result) {
-                                          //2.解析学院信息
-                                          alert("成功！！！")
-                                      }
-								  });
-                              }
-							  
-						  </script>
+
+							  <%--<input type="button" onclick="upload()" value="文件上传">--%>
+						  </td>
+						  <%--<script type="text/javascript">--%>
+							  <%--function upload() {--%>
+								 <%--var file =  $("#file").val();--%>
+								  <%--alert(file);--%>
+								  <%--$.ajax({--%>
+									  <%--url:"/stu/upload",--%>
+                                      <%--type:"post",--%>
+                                      <%--contentType : "application/x-www-form-urlencoded; charset=utf-8",--%>
+                                      <%--// data:"file="+file,--%>
+                                      <%--success:function (result) {--%>
+                                          <%--//2.解析学院信息--%>
+                                          <%--alert("成功！！！")--%>
+                                      <%--}--%>
+								  <%--});--%>
+                              <%--}--%>
+						  <%--</script>--%>
 
 							  <%--<input type="hidden" name="stuPicture" />--%>
 							  <%--<img src="/student/picture/logo.jpg">--%>

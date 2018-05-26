@@ -38,17 +38,34 @@
     <mvc:resources location="/css/" mapping="/css/**"/>
     <mvc:resources location="/student/picture/" mapping="/student/picture/**"/>
 
-    <!--拦截器-->
+    <!--测试拦截器！！！-->
     <!--<mvc:interceptors>-->
         <!--<mvc:interceptor>-->
-            <!--&lt;!&ndash;拦截所有&ndash;&gt;-->
             <!--<mvc:mapping path="/**"/>-->
-            <!--&lt;!&ndash;不进行拦截&ndash;&gt;-->
-            <!--<mvc:exclude-mapping path="/adm/*"/>-->
-            <!--<mvc:exclude-mapping path="/"/>-->
-            <!--<bean class="org.com.filter.F01_Admin"/>-->
+            <!--<bean class="org.com.filter.A1"/>-->
+        <!--</mvc:interceptor>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<bean class="org.com.filter.A2"/>-->
+        <!--</mvc:interceptor>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<bean class="org.com.filter.A3"/>-->
         <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
+
+    <!--拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--拦截所有-->
+            <mvc:mapping path="/**"/>
+            <!--不进行拦截-->
+            <mvc:exclude-mapping path="/adm/*"/>
+            <mvc:exclude-mapping path="/"/>
+            <bean class="org.com.filter.F01_Admin"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 
     <!--文件-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

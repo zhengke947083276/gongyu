@@ -2,8 +2,14 @@ package org.com.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 import org.com.entity.TblDorm;
+import org.com.entity.User;
 import org.com.service.TblDormService;
+import org.com.util.ExcelUtils;
 import org.com.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,14 +17,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/dorm")
 public class Dorm {
-
     @Autowired
     TblDormService tblDormService;
 
@@ -26,6 +36,55 @@ public class Dorm {
     public String jinChu(){
         return "dorm/add";
     }
+
+    @RequestMapping(value="/importDorm")
+    public String importDorm(HttpServletRequest request, HttpServletResponse response, @RequestParam("file")MultipartFile file) throws IOException, BiffException {
+        ExcelUtils excelUtils = new ExcelUtils();
+        List<String[]> list = excelUtils.importExcel(file);
+
+//        String originalFilename = file.getOriginalFilename();
+//        String name = file.getName();
+//        System.out.println(originalFilename+"   "+name);
+//        //转换成输入流
+//        InputStream inputStream = file.getInputStream();
+//        //得到excel
+//        Workbook workbook = Workbook.getWorkbook(inputStream);
+//        //得到sheet
+//        Sheet sheet = workbook.getSheet(0);
+//        //获取列
+//        int columns = sheet.getColumns();
+//        //获取行
+//        int rows = sheet.getRows();
+//        System.out.println("columns="+columns+"    "+"rows="+rows);
+//        //单元格
+//        Cell cell = null;
+//        List<String[]> list = new ArrayList<String[]>();
+//        //我的excel第一行是标题,所以 i从1开始
+//        for (int i = 1; i < rows; i++) {//行
+//            String[] strings = new String[columns];
+//            for (int j = 0;j<columns;j++){//列
+//                cell = sheet.getCell(j, i);//注意:第一个参数是列.第二个参数是行
+////                System.out.print(cell.getContents()+"   ");
+//                strings[j]=cell.getContents();
+////                map.put(j,cell.getContents());
+//            }
+//            list.add(strings);
+//            System.out.println();
+//        }
+//        inputStream.close();
+        List<TblDorm> tblDorms = new ArrayList<TblDorm>();
+        for (String[] strings :list) {
+            TblDorm tblDorm = new TblDorm();
+            tblDorm.setDormId(Integer.valueOf(strings[0]));
+            tblDorm.setDormName(strings[1]);
+            tblDorm.setDormState(Integer.valueOf(strings[2]));
+            tblDorms.add(tblDorm);
+        }
+        int i = tblDormService.addTblDormFor(tblDorms);
+        System.out.println(i);
+        return "redirect:/dorm/selectPage";
+    }
+
 
     @RequestMapping("/insert")
     public String insert(String d, String c, Integer h, TblDorm tblDorm){

@@ -61,7 +61,19 @@ public class TblCheckServiceImpl implements TblCheckService {
             }
         }
         if (stuState==1){
-
+            //修改学生状态为入校(1)
+            TblStudent tblStudent = new TblStudent();
+            tblStudent.setStuId(tblCheck.getStuId());
+            tblStudent.setStuState(stuState);
+            i = tblStudentMapper.updateByPrimaryKeySelective(tblStudent);
+            //判断宿舍状态是否为已满（2）==》改正常(1)
+            TblDorm tblDorm = tblDormMapper.selectByPrimaryKey(tblCheck.getDormId());
+            if (tblDorm.getDormState()==2){
+                TblDorm tblDorm1 = new TblDorm();
+                tblDorm1.setDormId(tblDorm.getDormId());
+                tblDorm1.setDormState(1);
+                i = tblDormMapper.updateByPrimaryKeySelective(tblDorm1);
+            }
         }
         return i;
     }
@@ -155,13 +167,16 @@ public class TblCheckServiceImpl implements TblCheckService {
         //学生
         criteria.andStuIdEqualTo(stuId);
         List<TblCheck> tblChecks = tblCheckMapper.selectByExample(tblCheckExample);
+        if (tblChecks!=null && tblChecks.size()!=0){
+            TblDormExample tblDormExample = new TblDormExample();
+            TblCheckExample.Criteria criteria1 = tblCheckExample.createCriteria();
+            criteria1.andDormIdEqualTo(tblChecks.get(0).getDormId());
+            List<TblDorm> tblDorms = tblDormMapper.selectByExample(tblDormExample);
+            tblChecks.get(0).setTblDorm(tblDorms.get(0));
+            return tblChecks.get(0);
+        }
 
-        TblDormExample tblDormExample = new TblDormExample();
-        TblCheckExample.Criteria criteria1 = tblCheckExample.createCriteria();
-        criteria1.andDormIdEqualTo(tblChecks.get(0).getDormId());
-        List<TblDorm> tblDorms = tblDormMapper.selectByExample(tblDormExample);
-        tblChecks.get(0).setTblDorm(tblDorms.get(0));
 
-        return tblChecks.get(0);
+        return null;
     }
 }

@@ -30,4 +30,13 @@ public class TblAdministrator {
     public void setAdmPass(String admPass) {
         this.admPass = admPass == null ? null : admPass.trim();
     }
+
+    @Override
+    public String toString() {
+        return "TblAdministrator{" +
+                "admId=" + admId +
+                ", admUser='" + admUser + '\'' +
+                ", admPass='" + admPass + '\'' +
+                '}';
+    }
 }

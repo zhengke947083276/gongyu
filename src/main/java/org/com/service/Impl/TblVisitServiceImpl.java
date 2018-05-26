@@ -29,12 +29,15 @@ public class TblVisitServiceImpl implements TblVisitService {
     @Override
     public List<TblVisit> selectAll() {
         List<TblVisit> tblVisits = tblVisitMapper.selectByExample(null);
-        for (TblVisit tblVisit:tblVisits){
-            TblCheck tblCheck = tblCheckService.selectWithDormByCheckState1AndStuId(tblVisit.getStuId());
-            TblStudent tblStudent = tblStudentService.selectStuAndSpeAndFacBy(tblVisit.getStuId());
-            tblCheck.setTblStudent(tblStudent);
-            tblVisit.setTblCheck(tblCheck);
+        if (tblVisits!=null && tblVisits.size()!=0){
+            for (TblVisit tblVisit:tblVisits){
+                TblCheck tblCheck = tblCheckService.selectWithDormByCheckState1AndStuId(tblVisit.getStuId());
+                TblStudent tblStudent = tblStudentService.selectStuAndSpeAndFacBy(tblVisit.getStuId());
+                tblCheck.setTblStudent(tblStudent);
+                tblVisit.setTblCheck(tblCheck);
+            }
         }
+
         return tblVisits;
     }
 }

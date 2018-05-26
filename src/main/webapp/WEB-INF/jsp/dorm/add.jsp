@@ -20,6 +20,16 @@
   <%@include file="/WEB-INF/jsp/adm/login.jsp"%>
   <%@include file="/WEB-INF/jsp/adm/update.jsp"%>
   <div id="all">
+	  <div style="position: absolute;margin-top: 230px;margin-left: 300px;">
+		  批量添加
+		  <form role="form" action="/dorm/importDorm" method="POST" enctype="multipart/form-data">
+			  <div>
+				  <label for="file">上传文件</label>
+				  <input type="file" id="file" name="file">
+			  </div>
+			  <input type="submit">提交</input>
+		  </form>
+	  </div>
 	  <%@include file="/WEB-INF/jsp/zujian/top1.jsp"%>
 	  <%@include file="/WEB-INF/jsp/zujian/top2.jsp"%>
 	  <%--<jsp:include page="${pageContext.servletContext.contextPath}/WEB-INF/jsp/zujian/top1.jsp"/>--%>

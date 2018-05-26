@@ -5,6 +5,7 @@ import org.com.dao.TblDormMapper;
 import org.com.dao.TblSpecialtyMapper;
 import org.com.dao.TblStudentMapper;
 import org.com.entity.*;
+import org.com.service.TblCheckService;
 import org.com.service.TblSpecialtyService;
 import org.com.service.TblStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,17 @@ public class TblStudentServiceImpl implements TblStudentService {
     TblSpecialtyMapper tblSpecialtyMapper;
     @Autowired
     TblSpecialtyService tblSpecialtyService;
+    @Autowired
+    TblCheckService tblCheckService;
 
     @Override
     public int addTblStudent(TblStudent tblStudent) {
         return tblStudentMapper.insertSelective(tblStudent);
+    }
+
+    @Override
+    public int addTblDormFor(List<TblStudent> tblStudents) {
+        return tblStudentMapper.insertSelectFor(tblStudents);
     }
 
     @Override
@@ -104,6 +112,8 @@ public class TblStudentServiceImpl implements TblStudentService {
                     //学生+入住状态
                     tblCheckExample.createCriteria().andStuIdEqualTo(stuId).andCheckStateEqualTo(true);
                     List<TblCheck> tblChecks = tblCheckMapper.selectByExample(tblCheckExample);
+                    TblCheck tblCheck = tblChecks.get(0);
+                    i = tblCheckService.updateTblCheck(tblCheck.getCheckId(),stuState);
                 }
             }
             if (state==3) {//当前状态毕业
@@ -126,6 +136,23 @@ public class TblStudentServiceImpl implements TblStudentService {
                 i = tblStudentMapper.updateByPrimaryKeySelective(tblStudent);
             }
             if (state==2) {//当前状态入住
+                TblStudent tblStudent = new TblStudent();
+                //添加学生id
+                tblStudent.setStuId(stuId);
+                //改为毕业
+                tblStudent.setStuState(stuState);
+                i = tblStudentMapper.updateByPrimaryKeySelective(tblStudent);
+                if (i>0){
+                    TblCheckExample tblCheckExample = new TblCheckExample();
+                    //先查询出来对应的入住信息
+                    //学生+入住状态
+                    tblCheckExample.createCriteria().andStuIdEqualTo(stuId).andCheckStateEqualTo(true);
+                    List<TblCheck> tblChecks = tblCheckMapper.selectByExample(tblCheckExample);
+                    TblCheck tblCheck = tblChecks.get(0);
+                    //修改入住状态
+                    i = tblCheckService.updateTblCheck(tblCheck.getCheckId(),stuState);
+                }
+
 
             }
         }

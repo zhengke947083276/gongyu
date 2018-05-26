@@ -13,6 +13,14 @@ public interface TblStudentService {
      */
     public int addTblStudent(TblStudent tblStudent);
 
+
+    /**
+     * 批量添加学生信息
+     * @param tblStudents
+     * @return
+     */
+    public int addTblDormFor(List<TblStudent> tblStudents);
+
     /**
      * 学生id删除
      * @param stuId

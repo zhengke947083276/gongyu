@@ -29,7 +29,7 @@
 		  <%--<jsp:include page="${pageContext.servletContext.contextPath}/WEB-INF/jsp/zujian/left.jsp"/>--%>
 		  <div class="b_2" style="width: 1310px;height: 650px">
 			  <table class="table table-hover table-bordered">
-				  <caption><h1 align="center">宿舍</h1></caption>
+				  <caption><h1 align="center">入住信息</h1></caption>
 				  <thead>
 					  <tr class="active">
 						  <th>序号</th>
