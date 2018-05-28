@@ -40,4 +40,9 @@ public class TblVisitServiceImpl implements TblVisitService {
 
         return tblVisits;
     }
+
+    @Override
+    public int delete(Integer visId) {
+        return tblVisitMapper.deleteByPrimaryKey(visId);
+    }
 }

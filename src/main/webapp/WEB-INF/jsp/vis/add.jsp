@@ -133,11 +133,10 @@
                   }
               });
           }
-
           function build_check(result) {
               var dorm = result;
               $("#dorm").empty();
-              $("#dorm").append("<span></span>").val(dorm.tblDorm.dormId).text(dorm.tblDorm.dormName).attr("style", "color: darkgreen");
+              $("#dorm").append("<span></span>").val(dorm.tblDorm.dormId).text(dorm.tblDorm.dormName).attr("style", "color: blue");
           }
 	  </script>
   </head>

@@ -52,7 +52,11 @@
 						  <td>${tblRegistration.tblStudent.tblSpecialty.speName}</td>
 						  <td><fmt:formatDate value="${tblRegistration.regTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						  <td>${tblRegistration.regState?"进门":"出门"}</td>
-						  <td><a href="/reg/delete?regID=${tblRegistration.regId}">删除</a></td><%--${tblRegistrations.size()==0?"":""}--%>
+						  <td>
+							  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+								  <span class="glyphicon glyphicon-trash"></span> <a href="/reg/delete?regID=${tblRegistration.regId}">删除</a>
+							  </button>
+						  </td>
 					  </tr>
 				  </c:forEach>
 				  </tbody>

@@ -57,7 +57,12 @@
 							  <td>${tblVisit.tblCheck.tblStudent.tblSpecialty.speName}</td>
 							  <td><fmt:formatDate value="${tblVisit.visTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 							  <td>${tblVisit.visDescription}</td>
-							  <td>查询 删除</td>
+							  <td>
+								  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+									  <span class="glyphicon glyphicon-trash"></span>
+									  <a href="/vis/delete?visId=${tblVisit.visId}">删除</a>
+								  </button>
+							  </td>
 						  </tr>
 					  </c:forEach>
 				  </tbody>

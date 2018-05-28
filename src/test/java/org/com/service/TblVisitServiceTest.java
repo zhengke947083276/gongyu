@@ -19,8 +19,11 @@ public class TblVisitServiceTest {
     public void selectAll() {
         List<TblVisit> tblVisits = tblVisitService.selectAll();
         for (TblVisit tblVisit :tblVisits) {
-            System.out.println(tblVisit.getTblCheck().getTblDorm());
-            System.out.println(tblVisit.getTblCheck().getTblStudent());
+//            System.out.println(tblVisit.getTblCheck().getTblDorm());
+//            System.out.println(tblVisit.getTblCheck().getTblStudent());
+            System.out.println(tblVisit);
         }
     }
+
+
 }

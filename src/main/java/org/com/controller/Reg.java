@@ -37,7 +37,7 @@ public class Reg {
     public String select(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
         //引入pagehelper插件
         //查询之前只需要调用，传入页码，以及每页的大小
-        PageHelper.startPage(pn,10);
+        PageHelper.startPage(pn,5);
         //startPage后就是一个分页查询
         List<TblRegistration> tblRegistrations = tblRegistrationService.selectAll();
         //使用PageInfo包装查询后的结果，只需要将PageInfo交给页面就行了

@@ -60,13 +60,33 @@
 						  <td>
 							  <c:choose>
 								  <c:when test="${dorm.dormState==1}">
-									  <a href="">查看</a> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=2">修改为已满</a> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=3">修改为不正常</a>
+									  <%--<button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">--%>
+										  <%--<span class="glyphicon glyphicon-off"></span> <a href="/che/delete?checkId=${tblCheck.checkId}">删除</a>--%>
+									  <%--</button>--%>
+									  <a href="">查看</a>
+									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+										  <span class="glyphicon glyphicon-pencil"></span> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=2">修改为已满</a>
+									  </button>
+									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+										  <span class="glyphicon glyphicon-pencil"></span> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=3">修改为不正常</a>
+									  </button>
 								  </c:when>
 								  <c:when test="${dorm.dormState==2}">
-									  <a href="">查看</a> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=1">修改为正常</a> <a href="/dorm/delete?dormId=${dorm.dormId}">删除</a>
+									  <a href="">查看</a>
+									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+										  <span class="glyphicon glyphicon-pencil"></span> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=1">修改为正常</a>
+									  </button>
+									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+										  <span class="glyphicon glyphicon-trash"></span> <a href="/dorm/delete?dormId=${dorm.dormId}">删除</a>
+									  </button>
 								  </c:when>
 								  <c:when test="${dorm.dormState==3}">
-									  <a href="/dorm/update?dormId=${dorm.dormId}&dormState=1">修改为正常</a> <a href="/dorm/delete?dormId=${dorm.dormId}">删除</a>
+									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+										  <span class="glyphicon glyphicon-pencil"></span> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=1">修改为正常</a>
+									  </button>
+									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+										  <span class="glyphicon glyphicon-trash"></span> <a href="/dorm/delete?dormId=${dorm.dormId}">删除</a>
+									  </button>
 								  </c:when>
 							  </c:choose>
 

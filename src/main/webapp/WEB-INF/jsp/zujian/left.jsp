@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <div class="b_1" style="width: 100px;height: 650px">
-
+	<div style="margin-top: 85px">
 	<div class="dropdown">
 		<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
 				data-toggle="dropdown">
@@ -83,5 +83,6 @@
 				<a href="/reg/select">查看记录</a>
 			</li>
 		</ul>
+	</div>
 	</div>
 </div>

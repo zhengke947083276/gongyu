@@ -30,9 +30,15 @@ public class Vis {
 
     }
 
+    @RequestMapping("/delete")
+    public String delete(int visId){
+        int delete = tblVisitService.delete(visId);
+        System.out.println(delete);
+        return "redirect:/vis/select";
+    }
     @RequestMapping("/select")
     public String select(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
-        PageHelper.startPage(pn,10);
+        PageHelper.startPage(pn,5);
         List<TblVisit> tblVisits = tblVisitService.selectAll();
         PageInfo pageInfo = new PageInfo(tblVisits,5);
         model.addAttribute("pageInfo",pageInfo);

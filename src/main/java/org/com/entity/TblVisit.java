@@ -15,6 +15,7 @@ public class TblVisit {
 
     private String visDescription;
 
+    private TblStudent tblStudent;
     private TblCheck tblCheck;
 
     public TblCheck getTblCheck() {
@@ -71,5 +72,27 @@ public class TblVisit {
 
     public void setVisDescription(String visDescription) {
         this.visDescription = visDescription == null ? null : visDescription.trim();
+    }
+
+    public TblStudent getTblStudent() {
+        return tblStudent;
+    }
+
+    public void setTblStudent(TblStudent tblStudent) {
+        this.tblStudent = tblStudent;
+    }
+
+    @Override
+    public String toString() {
+        return "TblVisit{" +
+                "visId=" + visId +
+                ", visName='" + visName + '\'' +
+                ", visCard='" + visCard + '\'' +
+                ", visTime=" + visTime +
+                ", stuId=" + stuId +
+                ", visDescription='" + visDescription + '\'' +
+                ", tblStudent=" + tblStudent +
+                ", tblCheck=" + tblCheck +
+                '}';
     }
 }

@@ -17,4 +17,11 @@ public interface TblVisitService {
      * @return
      */
     public List<TblVisit> selectAll();
+
+    /**
+     * 删除来访信息
+     * @param visId
+     * @return
+     */
+    public int delete(Integer visId);
 }

@@ -58,11 +58,19 @@
 						  <td>${tblCheck.checkState?"在校":"毕业"}</td>
 						  <td>
 							  <c:if test="${tblCheck.checkState}">
-								  <a href="/che/update?checkId=${tblCheck.checkId}&stuState=3">毕业</a>
+								  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+									  <span class="glyphicon glyphicon-pencil"></span> <a href="/che/update?checkId=${tblCheck.checkId}&stuState=3">毕业</a>
+								  </button>
+
 							  </c:if>
 							  <c:if test="${!tblCheck.checkState}">
-								  <a href="/che/delete?checkId=${tblCheck.checkId}">删除</a>
+                                  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+                                      <span class="glyphicon glyphicon-trash"></span> <a href="/che/delete?checkId=${tblCheck.checkId}">删除</a>
+                                  </button>
 							  </c:if>
+
+
+
 						  </td>
 					  </tr>
 				  </c:forEach>

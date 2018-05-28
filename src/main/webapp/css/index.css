@@ -39,4 +39,8 @@
 				text-align: center;
 				border: solid red 1px;
 			}
+			a{
+                color: white;
+                text-decoration: none;
+			}
 

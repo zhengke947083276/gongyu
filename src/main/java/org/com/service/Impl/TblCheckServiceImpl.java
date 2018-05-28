@@ -167,16 +167,11 @@ public class TblCheckServiceImpl implements TblCheckService {
         //学生
         criteria.andStuIdEqualTo(stuId);
         List<TblCheck> tblChecks = tblCheckMapper.selectByExample(tblCheckExample);
-        if (tblChecks!=null && tblChecks.size()!=0){
-            TblDormExample tblDormExample = new TblDormExample();
-            TblCheckExample.Criteria criteria1 = tblCheckExample.createCriteria();
-            criteria1.andDormIdEqualTo(tblChecks.get(0).getDormId());
-            List<TblDorm> tblDorms = tblDormMapper.selectByExample(tblDormExample);
-            tblChecks.get(0).setTblDorm(tblDorms.get(0));
-            return tblChecks.get(0);
-        }
-
-
-        return null;
+        TblDormExample tblDormExample = new TblDormExample();
+        TblCheckExample.Criteria criteria1 = tblCheckExample.createCriteria();
+        criteria1.andDormIdEqualTo(tblChecks.get(0).getDormId());
+        List<TblDorm> tblDorms = tblDormMapper.selectByExample(tblDormExample);
+        tblChecks.get(0).setTblDorm(tblDorms.get(0));
+        return tblChecks.get(0);
     }
 }
