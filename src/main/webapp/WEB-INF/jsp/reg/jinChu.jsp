@@ -28,26 +28,23 @@
 		  <%@include file="/WEB-INF/jsp/zujian/left.jsp"%>
 		  <%--<jsp:include page="${pageContext.servletContext.contextPath}/WEB-INF/jsp/zujian/left.jsp"/>--%>
 		  <div class="b_2" style="width: 1310px;height: 650px">
-			  <h1 align="center">门禁</h1>
-			  <form action="/reg/add" method="post">
-				  <table border="1" cellspacing="0" cellpadding="10" align="center" style="text-align: center;">
-					  <tr>
-						  <td colspan="2">
-							  进<input type="radio" checked="checked" name="regState" value="true">
-							  出<input type="radio" name="regState" value="false">
-						  </td>
-					  </tr>
-					  <tr>
-						  <td>学号</td>
-						  <td><input type="text" name="stuNo"/></td>
-					  </tr>
-					  <tr>
-						  <td colspan="2">
-							  <input type="submit" value="验证"/>
-						  </td>
-					  </tr>
-				  </table>
-			  </form>
+			  <h2 class="text-center">门禁</h2>
+			  <div style="padding: 0px 540px 0px;text-align: center">
+				  <form action="/reg/add" method="post" class="bs-example bs-example-form">
+					  <div class="input-group">
+						  <span class="input-group-addon">状态</span>
+						  <input type="radio"   value="true" name="regState" checked="checked" >进
+						  <input type="radio"   value="false" name="regState">出
+					  </div>
+					  <br>
+					  <div class="input-group">
+						  <span class="input-group-addon">学号</span>
+						  <input type="text" class="form-control" placeholder="请输入学号" name="stuNo">
+					  </div>
+					  <br>
+					  <input type="submit" value="验证" class="btn btn-primary" />
+				  </form>
+			  </div>
 		  </div>
 	  </div>
 	  <%@include file="/WEB-INF/jsp/zujian/foot.jsp"%>

@@ -37,6 +37,16 @@ public class Stu {
         return "stu/add";
     }
 
+    @RequestMapping("/updateAll")
+    public String updateAll(int stuId,Model model){
+        TblStudent tblStudent = tblStudentService.selectStuAndSpeAndFacBy(stuId);
+        model.addAttribute("tblStudent",tblStudent);
+        return "stu/update";
+    }
+
+
+
+
     /**
      * 导入jackson包
      * @return
@@ -81,7 +91,7 @@ public class Stu {
 
 
 
-        @RequestMapping(value = "/insert",method = RequestMethod.POST)
+    @RequestMapping(value = "/insert",method = RequestMethod.POST)
     public String insert(TblStudent tblStudent){
         System.out.println(tblStudent);
         int i = tblStudentService.addTblStudent(tblStudent);
@@ -128,12 +138,27 @@ public class Stu {
     @RequestMapping(value = "/addUpload",method = RequestMethod.POST)
     public String addUpload(TblStudent tblStudent, @RequestParam("file") MultipartFile file, HttpSession session) throws IOException {
         String contextPath = session.getServletContext().getRealPath("/");
-
 //        System.out.println(contextPath);// D:\dasan\g\target\ParkingSystem\
 //        System.out.println(file.getOriginalFilename());
         String filename = file.getOriginalFilename();//文件名
         tblStudent.setStuPicture(filename);
         int i = tblStudentService.addTblStudent(tblStudent);
+        if (!file.isEmpty()){//文件是否存在
+            File file1 = new File(contextPath+"student/picture",tblStudent.getStuName()+file.getOriginalFilename());
+            FileUtils.copyInputStreamToFile(file.getInputStream(),file1);
+        }
+        return "redirect:/stu/select";
+    }
+
+
+    @RequestMapping(value = "/updateUpload",method = RequestMethod.POST)
+    public String updateUpload(TblStudent tblStudent, @RequestParam("file") MultipartFile file, HttpSession session) throws IOException {
+        String contextPath = session.getServletContext().getRealPath("/");
+//        System.out.println(contextPath);// D:\dasan\g\target\ParkingSystem\
+//        System.out.println(file.getOriginalFilename());
+        String filename = file.getOriginalFilename();//文件名
+        tblStudent.setStuPicture(filename);
+        int i = tblStudentService.updateTblStudent(tblStudent);
         if (!file.isEmpty()){//文件是否存在
             File file1 = new File(contextPath+"student/picture",tblStudent.getStuName()+file.getOriginalFilename());
             FileUtils.copyInputStreamToFile(file.getInputStream(),file1);

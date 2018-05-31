@@ -54,7 +54,7 @@
 						  <td>${tblRegistration.regState?"进门":"出门"}</td>
 						  <td>
 							  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-								  <span class="glyphicon glyphicon-trash"></span> <a href="/reg/delete?regID=${tblRegistration.regId}">删除</a>
+								  <span class="glyphicon glyphicon-trash"></span> <a href="/reg/delete?regID=${tblRegistration.regId}" style="color: white;text-decoration: none; ">删除</a>
 							  </button>
 						  </td>
 					  </tr>

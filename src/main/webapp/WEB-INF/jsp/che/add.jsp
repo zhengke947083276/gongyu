@@ -14,16 +14,6 @@
 	  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
-	  <style type="text/css">
-		  #add1{
-			  border: red 1px solid;
-		  }
-		  .add1-1{
-			  text-align: center;
-			  margin: auto;
-			  line-height: 30px;
-		  }
-	  </style>
 	  <script type="text/javascript">
 		  //1.页面加载完成执行js，ajax请求
 		  $(function () {
@@ -105,16 +95,24 @@
 		  <%@include file="/WEB-INF/jsp/zujian/left.jsp"%>
 		  <%--<jsp:include page="${pageContext.servletContext.contextPath}/WEB-INF/jsp/zujian/left.jsp"/>--%>
 		  <div class="b_2" style="width: 1310px;height: 650px">
-			  <h2 style="text-align:center;">添加入住信息</h2>
-			  <div id="add1">
-				  <form action="/che/insert" method="post" class="add1-1">
-					  <select id="dorm" name="dormId">
-						  <option>---请选择宿舍---</option>
-					  </select>宿舍<br/>
-					  <select id="student" name="stuId">
-						  <option>---请选择学生---</option>
-					  </select>学生<br/>
-					  <input type="submit" value="入住" class="add1-2"/><br />
+			  <h2 class="text-center">添加入住信息</h2>
+			  <div style="padding: 0px 540px 0px;text-align: center">
+				  <form action="/che/insert" method="post"  class="bs-example bs-example-form" role="form" >
+					  <div class="input-group">
+						  <span class="input-group-addon">宿舍</span>
+						  <select id="dorm" name="dormId" class="form-control">
+							  <option>---请选择宿舍---</option>
+						  </select>
+					  </div>
+					  <br>
+					  <div class="input-group">
+						  <span class="input-group-addon">学生</span>
+						  <select id="student" name="stuId" class="form-control">
+							  <option>---请选择学生---</option>
+						  </select>
+					  </div>
+					  <br>
+					  <input type="submit" value="入住" class="btn btn-primary"/>
 				  </form>
 			  </div>
 		  </div>

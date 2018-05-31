@@ -60,7 +60,7 @@
 							  <td>
 								  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
 									  <span class="glyphicon glyphicon-trash"></span>
-									  <a href="/vis/delete?visId=${tblVisit.visId}">删除</a>
+									  <a href="/vis/delete?visId=${tblVisit.visId}" style="color: white;text-decoration: none; ">删除</a>
 								  </button>
 							  </td>
 						  </tr>

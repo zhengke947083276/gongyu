@@ -34,6 +34,11 @@ public class TblStudentServiceImpl implements TblStudentService {
     }
 
     @Override
+    public int updateTblStudent(TblStudent tblStudent) {
+        return tblStudentMapper.updateByPrimaryKeySelective(tblStudent);
+    }
+
+    @Override
     public int addTblDormFor(List<TblStudent> tblStudents) {
         return tblStudentMapper.insertSelectFor(tblStudents);
     }

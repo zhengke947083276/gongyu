@@ -108,28 +108,30 @@
 
 										  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
 											  <span class="glyphicon glyphicon-pencil"></span>
-											  <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3">修改为毕业状态</a>
+											  <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3" style="color: white;text-decoration: none; ">毕业</a>
 										  </button>
 									  </c:when>
 									  <c:when test="${tblStudent.stuState==2}">
 										  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-											  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3">修改为毕业状态</a>
+											  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3" style="color: white;text-decoration: none; ">毕业</a>
 										  </button>
 										  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-											  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1">修改为入校状态</a>
+											  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1" style="color: white;text-decoration: none; ">入校</a>
 										  </button>
 
 									  </c:when>
 									  <c:when test="${tblStudent.stuState==3}">
 										  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-											  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1">修改为入校状态</a>
+											  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1" style="color: white;text-decoration: none; ">入校</a>
 										  </button>
 										  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-											  <span class="glyphicon glyphicon-trash"></span> <a href="/stu/delete?stuId=${tblStudent.stuId}">删除</a>
+											  <span class="glyphicon glyphicon-trash"></span> <a href="/stu/delete?stuId=${tblStudent.stuId}" style="color: white;text-decoration: none; ">删除</a>
 										  </button>
 									  </c:when>
 								  </c:choose>
-							  完善学生信息
+							  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+								  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/updateAll?stuId=${tblStudent.stuId}" style="color: white;text-decoration: none; ">信息完善</a>
+							  </button>
 						  </td>
 					  </tr>
 				  </c:forEach>

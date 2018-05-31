@@ -13,6 +13,12 @@ public interface TblStudentService {
      */
     public int addTblStudent(TblStudent tblStudent);
 
+    /**
+     * 完善学生信息
+     * @param tblStudent
+     * @return
+     */
+    public int updateTblStudent(TblStudent tblStudent);
 
     /**
      * 批量添加学生信息

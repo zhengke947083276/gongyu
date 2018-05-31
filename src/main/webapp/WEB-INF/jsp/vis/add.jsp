@@ -13,47 +13,6 @@
 	  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	  <style type="text/css">
-		  table{
-			  border:solid 1px;
-			  border-color: burlywood;
-			  margin: auto;
-			  text-align: center;
-
-		  }
-		  td{
-			  border:solid 1px;
-			  border-color: burlywood;
-			  padding-top: 5px;
-			  padding-bottom:5px;
-			  font-size: 15px;
-			  font-weight: 500;
-		  }
-		  fieldset{
-			  margin: auto;
-		  }
-		  .tdd{
-			  color: brown;
-			  font-size: 20px;
-			  font-family: "楷体";
-			  font-style: italic;
-		  }
-		  .b_2{
-			  /*margin-top: 200px;*/
-			  width: 800px;
-		  }
-		  .submit{
-			  margin-left: 35px;
-			  padding-left: 25px;
-			  padding-right: 25px;
-		  }
-		  input{
-			  height: 23px;
-		  }
-
-	  </style>
-
-
 	  <script type="text/javascript">
           //加载学院
           $(function () {
@@ -135,8 +94,10 @@
           }
           function build_check(result) {
               var dorm = result;
-              $("#dorm").empty();
-              $("#dorm").append("<span></span>").val(dorm.tblDorm.dormId).text(dorm.tblDorm.dormName).attr("style", "color: blue");
+              $("#dormName").empty();
+              $("#dormID").empty();
+              $("#dormName").val(dorm.tblDorm.dormName);
+              $("#dormID").val(dorm.tblDorm.dormId);
           }
 	  </script>
   </head>
@@ -154,51 +115,57 @@
 		  <%@include file="/WEB-INF/jsp/zujian/left.jsp"%>
 		  <%--<jsp:include page="${pageContext.servletContext.contextPath}/WEB-INF/jsp/zujian/left.jsp"/>--%>
 		  <div class="b_2" style="width: 1310px;height: 650px">
+			  <h2 class="text-center">添加来访人员信息</h2>
+			  <div style="padding: 0px 540px 0px;text-align: center">
+				  <form action="/vis/insert" class="bs-example bs-example-form" role="form" method="post">
+					  <div class="input-group">
+						  <span class="input-group-addon">姓名</span>
+						  <input type="text" name="visName" class="form-control" placeholder="请输入来访姓名">
+					  </div>
+					  <br>
+					  <div class="input-group">
+						  <span class="input-group-addon">身份证</span>
+						  <input type="text" name="visCard" class="form-control" placeholder="请输入来访身份证">
+					  </div>
+					  <br>
+					  <div class="input-group">
+						  <span class="input-group-addon">学院</span>
+						  <select name="facId" id="facId" onchange="build_Spe(value)" class="form-control">
+							  <option>---请选择学院---</option>
+						  </select>
+					  </div>
+					  <br>
+					  <div class="input-group">
+						  <span class="input-group-addon">专业</span>
+						  <select name="speId" id="speId" class="form-control" onchange="build_Stu(value)">
+							  <option >---请选择专业---</option>
+						  </select>
+					  </div>
+					  <br>
 
-		  <fieldset style="border-color: green;padding: 10px;width: 50%">
-				  <legend style="color: brown; font-size: 30px;font-family:黑体">公寓来访记录</legend>
+					  <div class="input-group">
+						  <span class="input-group-addon">学生</span>
+						  <select name="stuId" id="stuId" class="form-control" onchange="build_Dorm(value)">
+							  <option >---请选择学生---</option>
+						  </select>
+					  </div>
+					  <br>
 
-				  <form method="post" action="/vis/insert">
-					  <table cellspacing="0px">
-						  <tbody><tr><td class="tdd" colspan="2">添加来访人员信息</td></tr>
-
-						  <tr><td>姓 名</td><td><input type="text" name="visName"></td></tr>
-						  <tr><td>身份信息</td><td><input type="text" name="visCard"></td></tr>
-						  <tr>
-							  <td>学院</td>
-							  <td>
-								  <select name="facId" id="facId" onchange="build_Spe(value)">
-									  <option>---请选择学院---</option>
-								  </select>
-							  </td>
-						  </tr>
-						  <tr>
-							  <td>专业</td>
-							  <td>
-								  <select name="speId" id="speId" onchange="build_Stu(value)">
-									  <option>---请选择专业---</option>
-								  </select>
-
-							  </td>
-						  </tr>
-						  <tr>
-							  <td>学生</td>
-							  <td>
-								  <select name="stuId" id="stuId" onchange="build_Dorm(value)">
-									  <option>---请选择学生---</option>
-								  </select>
-							  </td>
-						  </tr>
-
-						  <tr><td>宿舍号</td><td id="dorm"></td></tr>
-
-						  <tr><td>备 注</td><td><input type="text" name="visDescription"></td></tr>
-						  <tr><td colspan="2">
-							  <input type="submit" name="submit" class="submit"  value="添加">
-							  <input type="reset" name="submit" class="submit" value="重置">
-						  </td></tr>
-						  </tbody></table>
-				  </form></fieldset>
+					  <div class="input-group">
+						  <span class="input-group-addon">宿舍号</span>
+						  <input type="text" id="dormName"  disabled="disabled" class="form-control" value="">
+						  <input type="hidden" id="dormID"  value="" />
+					  </div>
+					  <br>
+					  <div class="input-group">
+						  <span class="input-group-addon">备注</span>
+						  <input type="text" name="visDescription" class="form-control">
+					  </div>
+					  <br>
+					  <input type="submit"   value="添加" class="btn btn-primary">
+					  <input type="reset"   value="重置" class="btn btn-primary">
+				  </form>
+			  </div>
 		  </div>
 	  </div>
 	  <%@include file="/WEB-INF/jsp/zujian/foot.jsp"%>

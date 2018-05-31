@@ -59,65 +59,6 @@
                       );
               });
           }
-
-		  <%--*****************************--%>
-		  // $(function () {
-		  //     $.ajax({
-			// 	  url:"/fac/selectFacultyWithSpecialty",
-           //        type:"get",
-           //        success:function (result) {
-           //            // console.log(result);
-           //            //2.解析专业信息
-           //            build_facWithSpe(result);
-           //        }
-          //
-			//   });
-          // });
-          //
-          //
-          //
-		  // function build_facWithSpe(result) {
-           //    var facWithSpes = result;
-           //    $.each(facWithSpes, function (index, item) {
-           //        // alert(item.facName);
-           //        $("#facId")
-           //            .append(
-           //                $("<option></option>").val(item.facId).text(item.facName).attr("style", "color: blue")
-           //            );
-           //    });
-          // }
-          //
-          //
-          // function build_Spe(id) {
-           //    //获取流
-           //    $.ajax({
-           //        url: "/fac/selectFacultyWithSpecialty",
-           //        type: "get",
-           //        success: function (result) {
-           //            var spe = result;
-           //            alert(spe);
-           //        }
-          //
-           //    });
-          // }
-
-
-
-              // var Spes=result;
-              // if (Spes==){
-              //     for(var j=0;j<Spes[i].length;j++) {
-              //         $("#facId").append($("<option onclick='build_Spe()'></option>").addClass(facWithSpes[i].facId).attr('id',facWithSpes[i].facId).val(facWithSpes[i].facId).text(facWithSpes[i].facName));
-              //     }
-              // }
-		      // for (var i=0;i<facWithSpes.length;i++){
-              // //.attr('onchange',build_Spe(fac_id))
-               //    $("#facId").append("<option></option>");
-              // // attr("onchange","build_Spe(facWithSpes[i].facName)".attr("onchange","build_Spe(1)");
-               //    $("#facId:first").val(facWithSpes[i].facId).text(facWithSpes[i].facName);
-		      // }
-		      // // $.each(facWithSpes ,function (index,item) {
-               // //    $("#facId").append($("<option onclick='build_Spe()'></option>").addClass(item.facId).attr('id',item.facId).val(item.facId).text(item.facName));
-          <%--*****************************--%>
 	  </script>
   </head>
   <body>
@@ -126,18 +67,6 @@
   <%@include file="/WEB-INF/jsp/adm/login.jsp"%>
   <%@include file="/WEB-INF/jsp/adm/update.jsp"%>
   <div id="all">
-	  <div style="position: absolute;margin-top: 230px;margin-left: 300px;">
-		  批量添加
-		  <form role="form" action="/stu/importStudent" method="POST" enctype="multipart/form-data">
-			  <div>
-				  <label for="file">上传文件</label>
-				  <input type="file"  name="file">
-			  </div>
-			  <input type="submit">提交</input>
-		  </form>
-	  </div>
-
-
 	  <%@include file="/WEB-INF/jsp/zujian/top1.jsp"%>
 	  <%@include file="/WEB-INF/jsp/zujian/top2.jsp"%>
 	  <%--<jsp:include page="${pageContext.servletContext.contextPath}/WEB-INF/jsp/zujian/top1.jsp"/>--%>
@@ -146,12 +75,14 @@
 		  <%@include file="/WEB-INF/jsp/zujian/left.jsp"%>
 		  <%--<jsp:include page="${pageContext.servletContext.contextPath}/WEB-INF/jsp/zujian/left.jsp"/>--%>
 		  <div class="b_2" style="width: 1310px;height: 650px">
-			  <h2 class="text-center">添加学生</h2>
+			  <h2 class="text-center">修改学生</h2>
 			  <div style="padding: 0px 540px 0px;text-align: center">
-				  <form action="/stu/addUpload" class="bs-example bs-example-form" role="form" method="post" enctype="multipart/form-data">
+				  <form action="/stu/updateUpload" class="bs-example bs-example-form" role="form" method="post" enctype="multipart/form-data">
+					  <input type="hidden" class="form-control"  name="stuId" value="${tblStudent.stuId}">
+
 					  <div class="input-group">
 						  <span class="input-group-addon">学号</span>
-						  <input type="text" class="form-control" placeholder="请输入学号" name="stuNo">
+						  <input type="text" class="form-control" disabled="disabled" name="stuNo" value="${tblStudent.stuNo}">
 					  </div>
 					  <br>
 					  <div class="input-group">
@@ -170,7 +101,7 @@
 					  <br>
 					  <div class="input-group">
 						  <span class="input-group-addon">姓名</span>
-						  <input type="text" class="form-control" placeholder="请输入姓名" name="stuName">
+						  <input type="text" class="form-control" disabled="disabled" name="stuName" value="${tblStudent.stuName}">
 					  </div>
 					  <br>
 
