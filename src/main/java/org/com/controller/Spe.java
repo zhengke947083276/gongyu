@@ -27,6 +27,4 @@ public class Spe {
         TblSpecialty tblSpecialty = tblSpecialtyService.selectSpeAndFacBySpeId(speId);
         return tblSpecialty;
     }
-
-
 }

@@ -54,7 +54,10 @@
 					<input type="password" class="form-control" placeholder="请输入密码" name="admPass">
 				</div>
 				<div style="text-align: center;padding: 15px 10px 15px;">
-					<input type="checkbox" name="day" value="7"/>自动登录<br><br>
+					<label class="checkbox-inline">
+					<input type="checkbox" name="day" value="7"/>自动登录
+					</label><br><br>
+
 					<input class="btn btn-primary" type="submit" value="登      录" />&nbsp;&nbsp;&nbsp;&nbsp;
 					<input class="btn btn-primary" type="reset" value="重      置" />
 				</div>

@@ -68,9 +68,6 @@
                                       <span class="glyphicon glyphicon-trash"></span> <a href="/che/delete?checkId=${tblCheck.checkId}" style="color: white;text-decoration: none; ">删除</a>
                                   </button>
 							  </c:if>
-
-
-
 						  </td>
 					  </tr>
 				  </c:forEach>
@@ -99,6 +96,9 @@
 				  <br>
 				  <span>当前${pageInfo.pageNum}页 | 总${pageInfo.pages}页 | 总${pageInfo.total}条记录 |</span>
 			  </div>
+			  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="/che/exportTblCheck" style="color: white;text-decoration: none; ">导出</a>
+			  </button>
 		  </div>
 	  </div>
 	  <%@include file="/WEB-INF/jsp/zujian/foot.jsp"%>

@@ -82,7 +82,7 @@
 
 					  <div class="input-group">
 						  <span class="input-group-addon">学号</span>
-						  <input type="text" class="form-control" disabled="disabled" name="stuNo" value="${tblStudent.stuNo}">
+						  <input type="text" class="form-control" readonly="readonly" name="stuNo" value="${tblStudent.stuNo}">
 					  </div>
 					  <br>
 					  <div class="input-group">
@@ -101,7 +101,7 @@
 					  <br>
 					  <div class="input-group">
 						  <span class="input-group-addon">姓名</span>
-						  <input type="text" class="form-control" disabled="disabled" name="stuName" value="${tblStudent.stuName}">
+						  <input type="text" class="form-control" readonly="readonly" name="stuName" value="${tblStudent.stuName}">
 					  </div>
 					  <br>
 
@@ -129,8 +129,12 @@
 
 					  <div class="input-group">
 						  <span class="input-group-addon">性别</span>
+						  <label class="radio-inline">
 						  <input type="radio"   value="true" name="stuSex" checked="checked" >男
+						  </label>
+						  <label class="radio-inline">
 						  <input type="radio"   value="false" name="stuSex">女
+						  </label>
 					  </div>
 					  <br>
 

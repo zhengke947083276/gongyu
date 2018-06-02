@@ -107,7 +107,7 @@
 					  <br>
 					  <div class="input-group">
 						  <span class="input-group-addon">学生</span>
-						  <select id="student" name="stuId" class="form-control">
+						  <select id="student"   name="stuId" class="form-control">
 							  <option>---请选择学生---</option>
 						  </select>
 					  </div>

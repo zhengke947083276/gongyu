@@ -27,7 +27,7 @@
 				  <label for="file">上传文件</label>
 				  <input type="file" id="file" name="file">
 			  </div>
-			  <input type="submit">提交</input>
+			  <input type="submit" value='上传' class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;" />
 		  </form>
 	  </div>
 	  <%@include file="/WEB-INF/jsp/zujian/top1.jsp"%>

@@ -33,8 +33,12 @@
 				  <form action="/reg/add" method="post" class="bs-example bs-example-form">
 					  <div class="input-group">
 						  <span class="input-group-addon">状态</span>
+						  <label class="radio-inline">
 						  <input type="radio"   value="true" name="regState" checked="checked" >进
+						  </label>
+						  <label class="radio-inline">
 						  <input type="radio"   value="false" name="regState">出
+						  </label>
 					  </div>
 					  <br>
 					  <div class="input-group">

@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,11 +20,15 @@ import java.util.Map;
 public class Adm {
     @Autowired
     TblAdministratorService tblAdministratorService;
+    @Autowired
+    ServletContext servletContext;
 //        return "redirect:/*/*";// 请求重定向
 //        return "forward:/*/*";//forward转发
     @RequestMapping(value = "/adm/login")
     public String login(HttpServletRequest request,HttpSession session,HttpServletResponse response,Integer day) {
         System.out.println(day);
+        String realPath = servletContext.getRealPath("/");
+        servletContext.setAttribute("realPath",realPath);
         String admUser = request.getParameter("admUser");
         String admPass = request.getParameter("admPass");
         if (day!=null && !day.equals("")){//用户勾选了7天自动登录

@@ -198,8 +198,12 @@
 
 					  <div class="input-group">
 						  <span class="input-group-addon">性别</span>
+						  <label class="radio-inline">
 						  <input type="radio"   value="true" name="stuSex" checked="checked" >男
+						  </label>
+						  <label class="radio-inline">
 						  <input type="radio"   value="false" name="stuSex">女
+						  </label>
 					  </div>
 					  <br>
 

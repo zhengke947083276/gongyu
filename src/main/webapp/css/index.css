@@ -1,14 +1,14 @@
 			#all{
 				width: 80%;
-				border: solid red 1px;
+				border: solid #ffffff 1px;
 				margin:auto;
 				position:relative; 
 			}
 			#top1{
-				border: solid red 1px;
+				border: solid #ffffff 1px;
 			}
 			#top2{
-				border: solid red 1px;
+				border: solid #ffffff 1px;
 			}
 			.daohang{
 			margin-right:40px;
@@ -16,12 +16,12 @@
 			}
 			#main{
 				clear:right;
-				border: solid red 1px;
+				border: solid #ffffff 1px;
 			}
 
 			.b_1{
 				float: left;
-				border: solid red 1px;
+				border: solid #ffffff 1px;
 				margin-left:30px;
 				width: 200px;
 				height: 700px;
@@ -29,7 +29,7 @@
 			}
 			.b_2{
 				float: right;
-				border: solid red 1px;
+				border: solid #ffffff 1px;
 				margin-right:40px;
 				width: 200px;
 				height: 700px;
@@ -37,7 +37,7 @@
 			#foot{
 				clear: right;
 				text-align: center;
-				border: solid red 1px;
+				border: solid #ffffff 1px;
 			}
 			a{
                 color: white;

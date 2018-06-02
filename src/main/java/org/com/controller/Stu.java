@@ -5,6 +5,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import jxl.read.biff.BiffException;
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.hssf.usermodel.*;
+import org.com.entity.TblDorm;
 import org.com.entity.TblStudent;
 import org.com.service.TblStudentService;
 import org.com.util.ExcelUtils;
@@ -14,10 +16,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,11 +36,13 @@ import java.util.List;
 public class Stu {
     @Autowired
     TblStudentService tblStudentService;
-
+    @Autowired
+    ServletContext servletContext;
     @RequestMapping("/add")
     public String add(){
         return "stu/add";
     }
+
 
     @RequestMapping("/updateAll")
     public String updateAll(int stuId,Model model){
@@ -89,6 +96,55 @@ public class Stu {
     }
 
 
+    @RequestMapping("/exportStudent")
+    public String exportStudent() throws Exception{
+        // 第一步，创建一个webbook，对应一个Excel文件
+        HSSFWorkbook wb = new HSSFWorkbook();
+        // 第二步，在webbook中添加一个sheet,对应Excel文件中的sheet
+        HSSFSheet sheet = wb.createSheet("学生表");
+        // 第三步，在sheet中添加表头第0行,注意老版本poi对Excel的行数列数有限制short
+        HSSFRow row = sheet.createRow(0);
+        // 第四步，创建单元格，并设置值表头 设置表头居中
+        HSSFCellStyle style = wb.createCellStyle();
+        style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        //添加第一行的标题
+        String[] strs = {"序号(stu_id)","学号(stu_no)","级(stu_period)","姓名(stu_name)",
+                "专业号(spe_id)","生日(stu_birthday)","性别(stu_sex)","电话(stu_phone)",
+                "图片(stu_picture)","家庭地址(stu_address)","学生状态(stu_state)"};
+        HSSFCell cell = null;
+        for (int i = 0; i <strs.length ; i++) {
+            cell = row.createCell(i);
+            cell.setCellValue(strs[i]);
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        // 第五步，写入实体数据 实际应用中这些数据从数据库得到
+        List<TblStudent> tblStudents = tblStudentService.selectAll();
+        for(int i=0;i<tblStudents.size();i++){
+            row = sheet.createRow(i+1);
+            TblStudent tblStudent = (TblStudent)tblStudents.get(i);
+            row.createCell(0).setCellValue(tblStudent.getStuId());
+            row.createCell(1).setCellValue(tblStudent.getStuNo());
+            row.createCell(2).setCellValue(tblStudent.getStuPeriod());
+            row.createCell(3).setCellValue(tblStudent.getStuName());
+            row.createCell(4).setCellValue(tblStudent.getSpeId());
+            Date stuBirthday = tblStudent.getStuBirthday();
+            String format = simpleDateFormat.format(stuBirthday);
+            row.createCell(5).setCellValue(format);
+            row.createCell(6).setCellValue(tblStudent.getStuSex());
+            row.createCell(7).setCellValue(tblStudent.getStuPhone());
+            row.createCell(8).setCellValue(tblStudent.getStuPicture());
+            row.createCell(9).setCellValue(tblStudent.getStuAddress());
+            row.createCell(10).setCellValue(tblStudent.getStuState());
+        }
+        // 第六步，将文件存到指定位置
+        String realPath = servletContext.getRealPath("/");
+
+        FileOutputStream fileOutputStream = new FileOutputStream("D:/dasan/g/公寓Excel/"+"exportStudent.xls");
+        wb.write(fileOutputStream);
+        fileOutputStream.close();
+        return "redirect:/stu/select";
+    }
 
 
     @RequestMapping(value = "/insert",method = RequestMethod.POST)
@@ -135,36 +191,44 @@ public class Stu {
         return "redirect:/stu/select";
     }
 
+    @RequestMapping(value = "/updateUpload",method = RequestMethod.POST)
+    public String updateUpload(TblStudent tblStudent, @RequestParam("file") MultipartFile file) throws IOException {
+        String realPath = servletContext.getRealPath("/");
+//        String path = "D:/dasan/g/src/main/webapp/";
+
+
+        System.out.println(realPath);// D:\dasan\g\target\ParkingSystem\
+        System.out.println(file.getOriginalFilename());
+        String filename = file.getOriginalFilename();//文件名
+        tblStudent.setStuPicture(tblStudent.getStuName()+filename);
+        int i = tblStudentService.updateTblStudent(tblStudent);
+        System.out.println(tblStudent+"*******************************");
+        if (!file.isEmpty()){//文件是否存在
+            File file1 = new File(realPath+"student/picture",tblStudent.getStuName()+file.getOriginalFilename());
+            FileUtils.copyInputStreamToFile(file.getInputStream(),file1);
+        }
+        return "redirect:/stu/select";
+    }
+
     @RequestMapping(value = "/addUpload",method = RequestMethod.POST)
-    public String addUpload(TblStudent tblStudent, @RequestParam("file") MultipartFile file, HttpSession session) throws IOException {
-        String contextPath = session.getServletContext().getRealPath("/");
+    public String addUpload(TblStudent tblStudent, @RequestParam("file") MultipartFile file) throws IOException {
+
+        String realPath = servletContext.getRealPath("/");
+//        String path = "D:/dasan/g/src/main/webapp/";
 //        System.out.println(contextPath);// D:\dasan\g\target\ParkingSystem\
 //        System.out.println(file.getOriginalFilename());
         String filename = file.getOriginalFilename();//文件名
-        tblStudent.setStuPicture(filename);
+        tblStudent.setStuPicture(tblStudent.getStuName()+filename);
         int i = tblStudentService.addTblStudent(tblStudent);
         if (!file.isEmpty()){//文件是否存在
-            File file1 = new File(contextPath+"student/picture",tblStudent.getStuName()+file.getOriginalFilename());
+            File file1 = new File(realPath+"student/picture",tblStudent.getStuName()+file.getOriginalFilename());
             FileUtils.copyInputStreamToFile(file.getInputStream(),file1);
         }
         return "redirect:/stu/select";
     }
 
 
-    @RequestMapping(value = "/updateUpload",method = RequestMethod.POST)
-    public String updateUpload(TblStudent tblStudent, @RequestParam("file") MultipartFile file, HttpSession session) throws IOException {
-        String contextPath = session.getServletContext().getRealPath("/");
-//        System.out.println(contextPath);// D:\dasan\g\target\ParkingSystem\
-//        System.out.println(file.getOriginalFilename());
-        String filename = file.getOriginalFilename();//文件名
-        tblStudent.setStuPicture(filename);
-        int i = tblStudentService.updateTblStudent(tblStudent);
-        if (!file.isEmpty()){//文件是否存在
-            File file1 = new File(contextPath+"student/picture",tblStudent.getStuName()+file.getOriginalFilename());
-            FileUtils.copyInputStreamToFile(file.getInputStream(),file1);
-        }
-        return "redirect:/stu/select";
-    }
+
 
 
 

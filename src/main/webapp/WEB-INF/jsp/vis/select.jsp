@@ -66,7 +66,7 @@
 						  </tr>
 					  </c:forEach>
 				  </tbody>
-				  </table>
+			  </table>
 				  <div style="text-align:center">
 					  <ul class="pagination">
 						  <li class="previous"><a href="/vis/select?pn=1">首  页</a></li>
@@ -90,7 +90,9 @@
 					  <br>
 					  <span>当前${pageInfo.pageNum}页 | 总${pageInfo.pages}页 | 总${pageInfo.total}条记录 |</span>
 				  </div>
-			  </fieldset>
+			  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="/vis/exportTblVisit" style="color: white;text-decoration: none; ">导出</a>
+			  </button>
 		  </div>
 	  </div>
 	  <%@include file="/WEB-INF/jsp/zujian/foot.jsp"%>

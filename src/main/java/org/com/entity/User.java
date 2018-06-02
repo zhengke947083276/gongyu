@@ -7,6 +7,17 @@ public class User {
     private int dAge;
     private String dSex;
 
+    public User() {
+    }
+
+    public User(int dId, String dName, String dPass, int dAge, String dSex) {
+        this.dId = dId;
+        this.dName = dName;
+        this.dPass = dPass;
+        this.dAge = dAge;
+        this.dSex = dSex;
+    }
+
     @Override
     public String toString() {
         return "User{" +

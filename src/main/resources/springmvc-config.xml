@@ -75,6 +75,11 @@
         <property name="resolveLazily" value="true"/>
     </bean>
 
+    <!--&lt;!&ndash; 通过order属性来定义视图解析器的优先级，order的值越小优先级越低 &ndash;&gt;-->
+    <!--<bean id="execelViewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">-->
+        <!--　　<property name="order" value="1"/>-->
+        <!--　　<property name="basename" value="views"/>-->
+    <!--</bean>-->
 
     <!-- 视图解析器解析jsp解析，默认使用jstl标签，classpath下的得有jstl的包-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
