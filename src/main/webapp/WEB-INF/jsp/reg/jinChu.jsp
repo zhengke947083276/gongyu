@@ -30,7 +30,7 @@
 		  <div class="b_2" style="width: 1310px;height: 650px">
 			  <h2 class="text-center">门禁</h2>
 			  <div style="padding: 0px 540px 0px;text-align: center">
-				  <form action="/reg/add" method="post" class="bs-example bs-example-form">
+				  <form action="${contextPath}/reg/add" method="post" class="bs-example bs-example-form">
 					  <div class="input-group">
 						  <span class="input-group-addon">状态</span>
 						  <label class="radio-inline">

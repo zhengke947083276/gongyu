@@ -58,7 +58,7 @@
 					<span class="glyphicon glyphicon-user"></span> 修改
 				</button>
 				<button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-					<span class="glyphicon glyphicon-off"> <a href="/adm/exit" style="color: white;text-decoration: none; ">退出</a></span>
+					<span class="glyphicon glyphicon-off"> <a href="${contextPath}/adm/exit" style="color: white;text-decoration: none; ">退出</a></span>
 				</button>
 			</c:when>
 		</c:choose>

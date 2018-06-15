@@ -11,7 +11,7 @@
     <title>批量导入客户</title>
 <body>
     批量添加
-    <form role="form" action="/excelDao/importUser" method="POST" enctype="multipart/form-data">
+    <form role="form" action="${contextPath}/excelDao/importUser" method="POST" enctype="multipart/form-data">
         <div>
             <label for="file">上传文件</label>
             <input type="file" id="file" name="file">

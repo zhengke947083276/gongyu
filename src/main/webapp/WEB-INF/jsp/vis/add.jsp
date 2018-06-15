@@ -17,7 +17,7 @@
           //加载学院
           $(function () {
               $.ajax({
-                  url:"/fac/selectAll",
+                  url:"${contextPath}/fac/selectAll",
                   type:"get",
                   success:function (result) {
                       //2.解析学院信息
@@ -38,7 +38,7 @@
           //点击获取专业
           function build_Spe(facId){
               $.ajax({
-                  url:"/spe/selectByFacId?facId="+facId,
+                  url:"${contextPath}/spe/selectByFacId?facId="+facId,
                   type:"get",
                   success:function (result) {
                       //2.解析专业信息
@@ -61,7 +61,7 @@
           //点击获取学生
 		  function build_Stu(speId) {
               $.ajax({
-                  url:"/stu/selectByStuState2AndSpeId?speId="+speId,
+                  url:"${contextPath}/stu/selectByStuState2AndSpeId?speId="+speId,
                   type:"get",
                   success:function (result) {
                       //2.解析学生信息
@@ -84,7 +84,7 @@
           //点击获取宿舍
           function build_Dorm(stuId) {
               $.ajax({
-                  url:"/che/selectWithDormByCheckState1AndStuId?stuId="+stuId,
+                  url:"${contextPath}/che/selectWithDormByCheckState1AndStuId?stuId="+stuId,
                   type:"get",
                   success:function (result) {
                       //2.解析入住信息
@@ -117,7 +117,7 @@
 		  <div class="b_2" style="width: 1310px;height: 650px">
 			  <h2 class="text-center">添加来访人员信息</h2>
 			  <div style="padding: 0px 540px 0px;text-align: center">
-				  <form action="/vis/insert" class="bs-example bs-example-form" role="form" method="post">
+				  <form action="${contextPath}/vis/insert" class="bs-example bs-example-form" role="form" method="post">
 					  <div class="input-group">
 						  <span class="input-group-addon">姓名</span>
 						  <input type="text" name="visName" class="form-control" placeholder="请输入来访姓名">

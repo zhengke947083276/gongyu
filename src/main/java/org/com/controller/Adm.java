@@ -27,8 +27,8 @@ public class Adm {
     @RequestMapping(value = "/adm/login")
     public String login(HttpServletRequest request,HttpSession session,HttpServletResponse response,Integer day) {
         System.out.println(day);
-        String realPath = servletContext.getRealPath("/");
-        servletContext.setAttribute("realPath",realPath);
+        String contextPath = servletContext.getContextPath();
+        servletContext.setAttribute("contextPath",contextPath);
         String admUser = request.getParameter("admUser");
         String admPass = request.getParameter("admPass");
         if (day!=null && !day.equals("")){//用户勾选了7天自动登录

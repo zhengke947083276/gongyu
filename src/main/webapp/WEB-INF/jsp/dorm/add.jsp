@@ -22,7 +22,7 @@
   <div id="all">
 	  <div style="position: absolute;margin-top: 230px;margin-left: 300px;">
 		  批量添加
-		  <form role="form" action="/dorm/importDorm" method="POST" enctype="multipart/form-data">
+		  <form role="form" action="${contextPath}/dorm/importDorm" method="POST" enctype="multipart/form-data">
 			  <div>
 				  <label for="file">上传文件</label>
 				  <input type="file" id="file" name="file">
@@ -40,7 +40,7 @@
 		  <div class="b_2" style="width: 1310px;height: 650px">
 			  <h2 class="text-center">添加宿舍</h2>
 			  <div style="padding: 0px 540px 0px;text-align: center">
-				  <form action="/dorm/insert" method="post"  class="bs-example bs-example-form" role="form" >
+				  <form action="${contextPath}/dorm/insert" method="post"  class="bs-example bs-example-form" role="form" >
 					  <div class="input-group">
 						  <input type="number" class="form-control" placeholder="请输入宿舍楼号" name="d">
 						  <span class="input-group-addon">栋</span>
@@ -60,7 +60,7 @@
 
 				  </form>
 				  <br>
-				  <form action="/dorm/insertFor" method="post"  class="bs-example bs-example-form" role="form" >
+				  <form action="${contextPath}/dorm/insertFor" method="post"  class="bs-example bs-example-form" role="form" >
 					  <div class="input-group">
 						  <input type="number" class="form-control" placeholder="请输入起始宿舍楼号" name="d1">~
 						  <input type="number" class="form-control" placeholder="请输入终止宿舍楼号" name="d2">
@@ -85,7 +85,6 @@
 		  </div>
 	  </div>
 	  <%@include file="/WEB-INF/jsp/zujian/foot.jsp"%>
-
 	  <%--<jsp:include page="${pageContext.servletContext.contextPath}/WEB-INF/jsp/zujian/foot.jsp"/>--%>
   </div>
   </body>

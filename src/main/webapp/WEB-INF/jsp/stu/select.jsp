@@ -55,36 +55,12 @@
 						  <td>${tblStudent.stuNo}</td>
 						  <td>${tblStudent.stuPeriod}</td>
 						  <td>${tblStudent.stuName}</td>
-						  <td><img src="/student/picture/${tblStudent.stuPicture}" width="40px" height="50px" class="img-rounded"></td>
+						  <td><img src="${contextPath}/student/picture/${tblStudent.stuPicture}" width="40px" height="50px" class="img-rounded"></td>
 						  <td>${tblStudent.tblSpecialty.tblFaculty.facName}</td>
 						  <td>
 							  ${tblStudent.tblSpecialty.speName}
-								  <%--&lt;%&ndash;${tblStudent.speId}&ndash;%&gt;--%>
-							  <%--<input type="hidden" class="speId"  value="${tblStudent.speId}">--%>
-							  <%--<span class="spe"></span>--%>
 						  </td>
-						  <%--<script type="text/javascript">--%>
-                              <%--//加载学院和专业--%>
-                              <%--$(function () {--%>
-                                  <%--var speID = $(".speId").val();--%>
-                                  <%--alert(speID);--%>
-                                  <%--$.ajax({--%>
-                                      <%--url:"/spe/selectSpeAndFacBySpeId?speId="+speID,--%>
-                                      <%--type:"get",--%>
-                                      <%--success:function (result) {--%>
-                                          <%--//2.解析学院和专业--%>
-                                          <%--build_facandspe(result);--%>
-                                      <%--}--%>
-                                  <%--});--%>
-                              <%--});--%>
-                              <%--function build_facandspe(result) {--%>
-                                  <%--var facandspe = result;--%>
-                                  <%--// alert(facandspe.speId);--%>
-                                  <%--$(".fac").text(facandspe.tblFaculty.facName);--%>
-								  <%--$(".spe").text(facandspe.speName);--%>
-                              <%--}--%>
 
-						  <%--</script>--%>
 
 						  <td><fmt:formatDate value="${tblStudent.stuBirthday}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						  <td>${tblStudent.stuSex?"男":"女"}</td>
@@ -108,29 +84,29 @@
 
 										  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
 											  <span class="glyphicon glyphicon-pencil"></span>
-											  <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3" style="color: white;text-decoration: none; ">毕业</a>
+											  <a href="${contextPath}/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3" style="color: white;text-decoration: none; ">毕业</a>
 										  </button>
 									  </c:when>
 									  <c:when test="${tblStudent.stuState==2}">
 										  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-											  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3" style="color: white;text-decoration: none; ">毕业</a>
+											  <span class="glyphicon glyphicon-pencil"></span> <a href="${contextPath}/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=3" style="color: white;text-decoration: none; ">毕业</a>
 										  </button>
 										  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-											  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1" style="color: white;text-decoration: none; ">入校</a>
+											  <span class="glyphicon glyphicon-pencil"></span> <a href="${contextPath}/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1" style="color: white;text-decoration: none; ">入校</a>
 										  </button>
 
 									  </c:when>
 									  <c:when test="${tblStudent.stuState==3}">
 										  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-											  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1" style="color: white;text-decoration: none; ">入校</a>
+											  <span class="glyphicon glyphicon-pencil"></span> <a href="${contextPath}/stu/update?stuId=${tblStudent.stuId}&stuState=${tblStudent.stuState}&state=1" style="color: white;text-decoration: none; ">入校</a>
 										  </button>
 										  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-											  <span class="glyphicon glyphicon-trash"></span> <a href="/stu/delete?stuId=${tblStudent.stuId}" style="color: white;text-decoration: none; ">删除</a>
+											  <span class="glyphicon glyphicon-trash"></span> <a href="${contextPath}/stu/delete?stuId=${tblStudent.stuId}" style="color: white;text-decoration: none; ">删除</a>
 										  </button>
 									  </c:when>
 								  </c:choose>
 							  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-								  <span class="glyphicon glyphicon-pencil"></span> <a href="/stu/updateAll?stuId=${tblStudent.stuId}" style="color: white;text-decoration: none; ">信息完善</a>
+								  <span class="glyphicon glyphicon-pencil"></span> <a href="${contextPath}/stu/updateAll?stuId=${tblStudent.stuId}" style="color: white;text-decoration: none; ">信息完善</a>
 							  </button>
 						  </td>
 					  </tr>
@@ -140,29 +116,29 @@
 			  <div style="text-align:center">
 
 				  <ul class="pagination">
-					  <li class="previous"><a href="/stu/select?pn=1">首  页</a></li>
+					  <li class="previous"><a href="${contextPath}/stu/select?pn=1">首  页</a></li>
 					  <c:if test="${pageInfo.hasPreviousPage}">
-						  <li><a href="/stu/select?pn=${pageInfo.pageNum-1}">&laquo;</a></li>
+						  <li><a href="${contextPath}/stu/select?pn=${pageInfo.pageNum-1}">&laquo;</a></li>
 					  </c:if>
 					  <c:forEach items="${pageInfo.navigatepageNums}" var="page_Num">
 						  <c:if test="${page_Num== pageInfo.pageNum}">
 							  <%--高量--%>
-							  <li class="active"><a href="/stu/select?pn=${page_Num}">${page_Num}</a></li>
+							  <li class="active"><a href="${contextPath}/stu/select?pn=${page_Num}">${page_Num}</a></li>
 						  </c:if>
 						  <c:if test="${page_Num != pageInfo.pageNum}">
-							  <li><a href="/stu/select?pn=${page_Num}">${page_Num}</a></li>
+							  <li><a href="${contextPath}/stu/select?pn=${page_Num}">${page_Num}</a></li>
 						  </c:if>
 					  </c:forEach>
 					  <c:if test="${pageInfo.hasNextPage}">
-						  <li><a href="/stu/select?pn=${pageInfo.pageNum+1}">&raquo;</a></li>
+						  <li><a href="${contextPath}/stu/select?pn=${pageInfo.pageNum+1}">&raquo;</a></li>
 					  </c:if>
-					  <li class="next"><a href="/stu/select?pn=${pageInfo.pages}">末  页</a></li>
+					  <li class="next"><a href="${contextPath}/stu/select?pn=${pageInfo.pages}">末  页</a></li>
 				  </ul>
 				  <br>
 				  <span>当前${pageInfo.pageNum}页 | 总${pageInfo.pages}页 | 总${pageInfo.total}条记录 |</span>
 			  </div>
 			  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="/stu/exportStudent" style="color: white;text-decoration: none; ">导出</a>
+				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="${contextPath}/stu/exportStudent" style="color: white;text-decoration: none; ">导出</a>
 			  </button>
 
 		  </div>

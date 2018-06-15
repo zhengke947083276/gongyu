@@ -43,7 +43,7 @@
 		</div>
 		<h3 class="text-center">管理员修改</h3>
 		<div style="padding: 20px 100px 20px;">
-			<form action="/adm/update" method="post"  class="bs-example bs-example-form" role="form" >
+			<form action="${contextPath}/adm/update" method="post"  class="bs-example bs-example-form" role="form" >
 				<div class="input-group">
 					<span class="input-group-addon">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
 					<input type="text" class="form-control" disabled="disabled"  name="admId" value="${user.admUser}">

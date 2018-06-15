@@ -65,27 +65,24 @@
 									  <%--</button>--%>
 									  <a href="">查看</a>
 									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-										  <span class="glyphicon glyphicon-pencil"></span> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=2" style="color: white;text-decoration: none; ">已满</a>
+										  <span class="glyphicon glyphicon-pencil"></span> <a href="${contextPath}/dorm/update?dormId=${dorm.dormId}&dormState=2" style="color: white;text-decoration: none; ">已满</a>
 									  </button>
 									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-										  <span class="glyphicon glyphicon-pencil"></span> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=3" style="color: white;text-decoration: none; ">不正常</a>
+										  <span class="glyphicon glyphicon-pencil"></span> <a href="${contextPath}/dorm/update?dormId=${dorm.dormId}&dormState=3" style="color: white;text-decoration: none; ">不正常</a>
 									  </button>
 								  </c:when>
 								  <c:when test="${dorm.dormState==2}">
 									  <a href="">查看</a>
 									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-										  <span class="glyphicon glyphicon-pencil"></span> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=1" style="color: white;text-decoration: none; ">正常</a>
-									  </button>
-									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-										  <span class="glyphicon glyphicon-trash"></span> <a href="/dorm/delete?dormId=${dorm.dormId}" style="color: white;text-decoration: none; ">删除</a>
+										  <span class="glyphicon glyphicon-pencil"></span> <a href="${contextPath}/dorm/update?dormId=${dorm.dormId}&dormState=1" style="color: white;text-decoration: none; ">正常</a>
 									  </button>
 								  </c:when>
 								  <c:when test="${dorm.dormState==3}">
 									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-										  <span class="glyphicon glyphicon-pencil"></span> <a href="/dorm/update?dormId=${dorm.dormId}&dormState=1" style="color: white;text-decoration: none; ">正常</a>
+										  <span class="glyphicon glyphicon-pencil"></span> <a href="${contextPath}/dorm/update?dormId=${dorm.dormId}&dormState=1" style="color: white;text-decoration: none; ">正常</a>
 									  </button>
 									  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-										  <span class="glyphicon glyphicon-trash"></span> <a href="/dorm/delete?dormId=${dorm.dormId}" style="color: white;text-decoration: none; ">删除</a>
+										  <span class="glyphicon glyphicon-trash"></span> <a href="${contextPath}/dorm/delete?dormId=${dorm.dormId}" style="color: white;text-decoration: none; ">删除</a>
 									  </button>
 								  </c:when>
 							  </c:choose>
@@ -97,30 +94,30 @@
 			  </table>
 			  <div style="text-align:center">
 				  <ul class="pagination">
-					  <li class="previous"><a href="/dorm/selectPage?pn=1">首  页</a></li>
+					  <li class="previous"><a href="${contextPath}/dorm/selectPage?pn=1">首  页</a></li>
 				  <c:if test="${pageInfo.hasPreviousPage}">
-					  <li><a href="/dorm/selectPage?pn=${pageInfo.pageNum-1}">&laquo;</a></li>
+					  <li><a href="${contextPath}/dorm/selectPage?pn=${pageInfo.pageNum-1}">&laquo;</a></li>
 				  </c:if>
 				  <c:forEach items="${pageInfo.navigatepageNums}" var="page_Num">
 					  <c:if test="${page_Num== pageInfo.pageNum}">
 						  <%--高量--%>
-						  <li class="active"><a href="/dorm/selectPage?pn=${page_Num}">${page_Num}</a></li>
+						  <li class="active"><a href="${contextPath}/dorm/selectPage?pn=${page_Num}">${page_Num}</a></li>
 					  </c:if>
 					  <c:if test="${page_Num != pageInfo.pageNum}">
-						  <li><a href="/dorm/selectPage?pn=${page_Num}">${page_Num}</a></li>
+						  <li><a href="${contextPath}/dorm/selectPage?pn=${page_Num}">${page_Num}</a></li>
 					  </c:if>
 				  </c:forEach>
 				  <c:if test="${pageInfo.hasNextPage}">
-					  <li><a href="/dorm/selectPage?pn=${pageInfo.pageNum+1}">&raquo;</a></li>
+					  <li><a href="${contextPath}/dorm/selectPage?pn=${pageInfo.pageNum+1}">&raquo;</a></li>
 				  </c:if>
-					  <li class="next"><a href="/dorm/selectPage?pn=${pageInfo.pages}">末  页</a></li>
+					  <li class="next"><a href="${contextPath}/dorm/selectPage?pn=${pageInfo.pages}">末  页</a></li>
 				  </ul>
 				  <br>
 				  <span>当前${pageInfo.pageNum}页 | 总${pageInfo.pages}页 | 总${pageInfo.total}条记录 |</span>
 			  </div>
 
 			  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="/dorm/exportDorm" style="color: white;text-decoration: none; ">导出</a>
+				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="${contextPath}/dorm/exportDorm" style="color: white;text-decoration: none; ">导出</a>
 			  </button>
 		  </div>
 	  </div>

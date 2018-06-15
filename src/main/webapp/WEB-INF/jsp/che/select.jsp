@@ -50,7 +50,7 @@
 						  <td>${x.index+1}</td>
 						  <td>${tblCheck.tblDorm.dormName}</td>
 						  <td>${tblCheck.tblStudent.stuName}</td>
-						  <td><img src="/student/picture/${tblCheck.tblStudent.stuPicture}" width="40px" height="50px" class="img-rounded"></td>
+						  <td><img src="${contextPath}/student/picture/${tblCheck.tblStudent.stuPicture}" width="40px" height="50px" class="img-rounded"></td>
 						  <td>${tblCheck.tblStudent.tblSpecialty.tblFaculty.facName}</td>
 						  <td>${tblCheck.tblStudent.tblSpecialty.speName}</td>
 						  <td><fmt:formatDate value="${tblCheck.checkInTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
@@ -59,13 +59,13 @@
 						  <td>
 							  <c:if test="${tblCheck.checkState}">
 								  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-									  <span class="glyphicon glyphicon-pencil"></span> <a href="/che/update?checkId=${tblCheck.checkId}&stuState=3" style="color: white;text-decoration: none; ">毕业</a>
+									  <span class="glyphicon glyphicon-pencil"></span> <a href="${contextPath}/che/update?checkId=${tblCheck.checkId}&stuState=3" style="color: white;text-decoration: none; ">毕业</a>
 								  </button>
 
 							  </c:if>
 							  <c:if test="${!tblCheck.checkState}">
                                   <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-                                      <span class="glyphicon glyphicon-trash"></span> <a href="/che/delete?checkId=${tblCheck.checkId}" style="color: white;text-decoration: none; ">删除</a>
+                                      <span class="glyphicon glyphicon-trash"></span> <a href="${contextPath}/che/delete?checkId=${tblCheck.checkId}" style="color: white;text-decoration: none; ">删除</a>
                                   </button>
 							  </c:if>
 						  </td>
@@ -75,29 +75,29 @@
 			  </table>
 			  <div style="text-align:center">
 				  <ul class="pagination">
-					  <li class="previous"><a href="/che/selectAll?pn=1">首  页</a></li>
+					  <li class="previous"><a href="${contextPath}/che/selectAll?pn=1">首  页</a></li>
 					  <c:if test="${pageInfo.hasPreviousPage}">
-						  <li><a href="/che/selectAll?pn=${pageInfo.pageNum-1}">&laquo;</a></li>
+						  <li><a href="${contextPath}/che/selectAll?pn=${pageInfo.pageNum-1}">&laquo;</a></li>
 					  </c:if>
 					  <c:forEach items="${pageInfo.navigatepageNums}" var="page_Num">
 					  <c:if test="${page_Num== pageInfo.pageNum}">
 							  <%--高量--%>
-							  <li class="active"><a href="/che/selectAll?pn=${page_Num}">${page_Num}</a></li>
+							  <li class="active"><a href="${contextPath}/che/selectAll?pn=${page_Num}">${page_Num}</a></li>
 						  </c:if>
 						  <c:if test="${page_Num != pageInfo.pageNum}">
-							  <li> <a href="/che/selectAll?pn=${page_Num}">${page_Num}</a></li>
+							  <li> <a href="${contextPath}/che/selectAll?pn=${page_Num}">${page_Num}</a></li>
 						  </c:if>
 					  </c:forEach>
 					  <c:if test="${pageInfo.hasNextPage}">
-						  <li><a href="/che/selectAll?pn=${pageInfo.pageNum+1}">&raquo;</a></li>
+						  <li><a href="${contextPath}/che/selectAll?pn=${pageInfo.pageNum+1}">&raquo;</a></li>
 					  </c:if>
-					  <li class="next"><a href="/che/selectAll?pn=${pageInfo.pages}">末  页</a></li>
+					  <li class="next"><a href="${contextPath}/che/selectAll?pn=${pageInfo.pages}">末  页</a></li>
 				  </ul>
 				  <br>
 				  <span>当前${pageInfo.pageNum}页 | 总${pageInfo.pages}页 | 总${pageInfo.total}条记录 |</span>
 			  </div>
 			  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="/che/exportTblCheck" style="color: white;text-decoration: none; ">导出</a>
+				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="${contextPath}/che/exportTblCheck" style="color: white;text-decoration: none; ">导出</a>
 			  </button>
 		  </div>
 	  </div>

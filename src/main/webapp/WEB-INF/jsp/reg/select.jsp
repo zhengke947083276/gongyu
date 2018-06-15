@@ -47,14 +47,14 @@
 					  <tr class="success">
 						  <td>${x.index+1}</td>
 						  <td>${tblRegistration.tblStudent.stuName}</td>
-						  <td><img src="/student/picture/${tblRegistration.tblStudent.stuPicture}" width="40px" height="50px" class="img-rounded"></td>
+						  <td><img src="${contextPath}/student/picture/${tblRegistration.tblStudent.stuPicture}" width="40px" height="50px" class="img-rounded"></td>
 						  <td>${tblRegistration.tblStudent.tblSpecialty.tblFaculty.facName}</td>
 						  <td>${tblRegistration.tblStudent.tblSpecialty.speName}</td>
 						  <td><fmt:formatDate value="${tblRegistration.regTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						  <td>${tblRegistration.regState?"进门":"出门"}</td>
 						  <td>
 							  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-								  <span class="glyphicon glyphicon-trash"></span> <a href="/reg/delete?regID=${tblRegistration.regId}" style="color: white;text-decoration: none; ">删除</a>
+								  <span class="glyphicon glyphicon-trash"></span> <a href="${contextPath}/reg/delete?regID=${tblRegistration.regId}" style="color: white;text-decoration: none; ">删除</a>
 							  </button>
 						  </td>
 					  </tr>
@@ -64,30 +64,30 @@
 
 			  <div style="text-align:center">
 				  <ul class="pagination">
-					  <li class="previous"><a href="/reg/select?pn=1">首  页</a></li>
+					  <li class="previous"><a href="${contextPath}/reg/select?pn=1">首  页</a></li>
 					  <c:if test="${pageInfo.hasPreviousPage}">
-						  <li><a href="/reg/select?pn=${pageInfo.pageNum-1}">&laquo;</a></li>
+						  <li><a href="${contextPath}/reg/select?pn=${pageInfo.pageNum-1}">&laquo;</a></li>
 					  </c:if>
 					  <c:forEach items="${pageInfo.navigatepageNums}" var="page_Num">
 						  <c:if test="${page_Num== pageInfo.pageNum}">
 							  <%--高量--%>
-							  <li class="active"><a href="/reg/select?pn=${page_Num}">${page_Num}</a></li>
+							  <li class="active"><a href="${contextPath}/reg/select?pn=${page_Num}">${page_Num}</a></li>
 						  </c:if>
 						  <c:if test="${page_Num != pageInfo.pageNum}">
-							  <li><a href="/reg/select?pn=${page_Num}">${page_Num}</a></li>
+							  <li><a href="${contextPath}/reg/select?pn=${page_Num}">${page_Num}</a></li>
 						  </c:if>
 					  </c:forEach>
 					  <c:if test="${pageInfo.hasNextPage}">
-						  <li><a href="/reg/select?pn=${pageInfo.pageNum+1}">&raquo;</a></li>
+						  <li><a href="${contextPath}/reg/select?pn=${pageInfo.pageNum+1}">&raquo;</a></li>
 					  </c:if>
-					  <li class="next"><a href="/reg/select?pn=${pageInfo.pages}">末  页</a></li>
+					  <li class="next"><a href="${contextPath}/reg/select?pn=${pageInfo.pages}">末  页</a></li>
 				  </ul>
 				  <br>
 				  <span>当前${pageInfo.pageNum}页 | 总${pageInfo.pages}页 | 总${pageInfo.total}条记录 |</span>
 
 			  </div>
 			  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="/reg/exportTblRegistration" style="color: white;text-decoration: none; ">导出</a>
+				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="${contextPath}/reg/exportTblRegistration" style="color: white;text-decoration: none; ">导出</a>
 			  </button>
 		  </div>
 	  </div>

@@ -52,7 +52,7 @@
 							  <td>${tblVisit.visCard}</td>
 							  <td>${tblVisit.tblCheck.tblDorm.dormName}</td>
 							  <td>${tblVisit.tblCheck.tblStudent.stuName}</td>
-							  <td><img src="/student/picture/${tblVisit.tblCheck.tblStudent.stuPicture}" width="40px" height="50px" class="img-rounded"></td>
+							  <td><img src="${contextPath}/student/picture/${tblVisit.tblCheck.tblStudent.stuPicture}" width="40px" height="50px" class="img-rounded"></td>
 							  <td>${tblVisit.tblCheck.tblStudent.tblSpecialty.tblFaculty.facName}</td>
 							  <td>${tblVisit.tblCheck.tblStudent.tblSpecialty.speName}</td>
 							  <td><fmt:formatDate value="${tblVisit.visTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
@@ -60,7 +60,7 @@
 							  <td>
 								  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
 									  <span class="glyphicon glyphicon-trash"></span>
-									  <a href="/vis/delete?visId=${tblVisit.visId}" style="color: white;text-decoration: none; ">删除</a>
+									  <a href="${contextPath}/vis/delete?visId=${tblVisit.visId}" style="color: white;text-decoration: none; ">删除</a>
 								  </button>
 							  </td>
 						  </tr>
@@ -69,29 +69,29 @@
 			  </table>
 				  <div style="text-align:center">
 					  <ul class="pagination">
-						  <li class="previous"><a href="/vis/select?pn=1">首  页</a></li>
+						  <li class="previous"><a href="${contextPath}/vis/select?pn=1">首  页</a></li>
 						  <c:if test="${pageInfo.hasPreviousPage}">
-							  <li><a href="/vis/select?pn=${pageInfo.pageNum-1}">&laquo;</a></li>
+							  <li><a href="${contextPath}/vis/select?pn=${pageInfo.pageNum-1}">&laquo;</a></li>
 						  </c:if>
 						  <c:forEach items="${pageInfo.navigatepageNums}" var="page_Num">
 							  <c:if test="${page_Num== pageInfo.pageNum}">
 								  <%--高量--%>
-								  <li class="active"><a href="/vis/select?pn=${page_Num}">${page_Num}</a></li>
+								  <li class="active"><a href="${contextPath}/vis/select?pn=${page_Num}">${page_Num}</a></li>
 							  </c:if>
 							  <c:if test="${page_Num != pageInfo.pageNum}">
-								  <li><a href="/vis/select?pn=${page_Num}">${page_Num}</a></li>
+								  <li><a href="${contextPath}/vis/select?pn=${page_Num}">${page_Num}</a></li>
 							  </c:if>
 						  </c:forEach>
 						  <c:if test="${pageInfo.hasNextPage}">
-							  <li><a href="/vis/select?pn=${pageInfo.pageNum+1}">&raquo;</a></li>
+							  <li><a href="${contextPath}/vis/select?pn=${pageInfo.pageNum+1}">&raquo;</a></li>
 						  </c:if>
-						  <li class="next"><a href="/vis/select?pn=${pageInfo.pages}">末  页</a></li>
+						  <li class="next"><a href="${contextPath}/vis/select?pn=${pageInfo.pages}">末  页</a></li>
 					  </ul>
 					  <br>
 					  <span>当前${pageInfo.pageNum}页 | 总${pageInfo.pages}页 | 总${pageInfo.total}条记录 |</span>
 				  </div>
 			  <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
-				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="/vis/exportTblVisit" style="color: white;text-decoration: none; ">导出</a>
+				  <span class="glyphicon glyphicon-floppy-save"></span> <a href="${contextPath}/vis/exportTblVisit" style="color: white;text-decoration: none; ">导出</a>
 			  </button>
 		  </div>
 	  </div>

@@ -18,7 +18,7 @@
 		  //加载学院
 		  $(function () {
 			 $.ajax({
-                 url:"/fac/selectAll",
+                 url:"${contextPath}/fac/selectAll",
                  type:"get",
 				 success:function (result) {
 					 //2.解析学院信息
@@ -39,7 +39,7 @@
           //点击获取专业
           function build_Spe(facId){
               $.ajax({
-                  url:"/spe/selectByFacId?facId="+facId,
+                  url:"${contextPath}/spe/selectByFacId?facId="+facId,
                   type:"get",
                   success:function (result) {
                       //2.解析专业信息
@@ -60,64 +60,7 @@
               });
           }
 
-		  <%--*****************************--%>
-		  // $(function () {
-		  //     $.ajax({
-			// 	  url:"/fac/selectFacultyWithSpecialty",
-           //        type:"get",
-           //        success:function (result) {
-           //            // console.log(result);
-           //            //2.解析专业信息
-           //            build_facWithSpe(result);
-           //        }
-          //
-			//   });
-          // });
-          //
-          //
-          //
-		  // function build_facWithSpe(result) {
-           //    var facWithSpes = result;
-           //    $.each(facWithSpes, function (index, item) {
-           //        // alert(item.facName);
-           //        $("#facId")
-           //            .append(
-           //                $("<option></option>").val(item.facId).text(item.facName).attr("style", "color: blue")
-           //            );
-           //    });
-          // }
-          //
-          //
-          // function build_Spe(id) {
-           //    //获取流
-           //    $.ajax({
-           //        url: "/fac/selectFacultyWithSpecialty",
-           //        type: "get",
-           //        success: function (result) {
-           //            var spe = result;
-           //            alert(spe);
-           //        }
-          //
-           //    });
-          // }
 
-
-
-              // var Spes=result;
-              // if (Spes==){
-              //     for(var j=0;j<Spes[i].length;j++) {
-              //         $("#facId").append($("<option onclick='build_Spe()'></option>").addClass(facWithSpes[i].facId).attr('id',facWithSpes[i].facId).val(facWithSpes[i].facId).text(facWithSpes[i].facName));
-              //     }
-              // }
-		      // for (var i=0;i<facWithSpes.length;i++){
-              // //.attr('onchange',build_Spe(fac_id))
-               //    $("#facId").append("<option></option>");
-              // // attr("onchange","build_Spe(facWithSpes[i].facName)".attr("onchange","build_Spe(1)");
-               //    $("#facId:first").val(facWithSpes[i].facId).text(facWithSpes[i].facName);
-		      // }
-		      // // $.each(facWithSpes ,function (index,item) {
-               // //    $("#facId").append($("<option onclick='build_Spe()'></option>").addClass(item.facId).attr('id',item.facId).val(item.facId).text(item.facName));
-          <%--*****************************--%>
 	  </script>
   </head>
   <body>
@@ -128,7 +71,7 @@
   <div id="all">
 	  <div style="position: absolute;margin-top: 230px;margin-left: 300px;">
 		  批量添加
-		  <form role="form" action="/stu/importStudent" method="POST" enctype="multipart/form-data">
+		  <form role="form" action="${contextPath}/stu/importStudent" method="POST" enctype="multipart/form-data">
 			  <div>
 				  <label for="file">上传文件</label>
 				  <input type="file"  name="file">
@@ -148,7 +91,7 @@
 		  <div class="b_2" style="width: 1310px;height: 650px">
 			  <h2 class="text-center">添加学生</h2>
 			  <div style="padding: 0px 540px 0px;text-align: center">
-				  <form action="/stu/addUpload" class="bs-example bs-example-form" role="form" method="post" enctype="multipart/form-data">
+				  <form action="${contextPath}/stu/addUpload" class="bs-example bs-example-form" role="form" method="post" enctype="multipart/form-data">
 					  <div class="input-group">
 						  <span class="input-group-addon">学号</span>
 						  <input type="text" class="form-control" placeholder="请输入学号" name="stuNo">

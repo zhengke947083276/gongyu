@@ -18,7 +18,7 @@
 		  //1.页面加载完成执行js，ajax请求
 		  $(function () {
               $.ajax({
-                  url:"/dorm/selectByDormState1",
+                  url:"${contextPath}/dorm/selectByDormState1",
                   type:"get",
                   success:function (result) {
                       // console.log(result);
@@ -28,18 +28,6 @@
               });
           });
 
-          // //点击调用
-          // function dorms () {
-			//   $.ajax({
-			// 	  url:"/dorm/selectByDormState1",
-			// 	  type:"get",
-			// 	  success:function (result) {
-			// 		  // console.log(result);
-			// 		  //2.解析宿舍信息
-          //             build_dorm(result);
-          //         }
-			//   });
-          // }
 		  function build_dorm(result) {
 			  var dorms = result;
 			  $.each(dorms,function (index,item) {
@@ -50,7 +38,7 @@
 
           $(document).ready(function () {
               $.ajax({
-                  url:"/stu/selectTblStudentByStuState1",
+                  url:"${contextPath}/stu/selectTblStudentByStuState1",
                   type:"get",
                   success:function (result) {
                       // console.log(result);
@@ -60,18 +48,6 @@
               });
           });
 
-          // //点击调用
-          // function students () {
-          //     $.ajax({
-          //         url:"/stu/selectTblStudentByStuState1",
-          //         type:"get",
-          //         success:function (result) {
-          //             // console.log(result);
-          //             //2.解析学生信息
-          //             build_student(result);
-          //         }
-          //     });
-          // }
           function build_student(result) {
               var students = result;
               $.each(students,function (index,item) {
@@ -97,7 +73,7 @@
 		  <div class="b_2" style="width: 1310px;height: 650px">
 			  <h2 class="text-center">添加入住信息</h2>
 			  <div style="padding: 0px 540px 0px;text-align: center">
-				  <form action="/che/insert" method="post"  class="bs-example bs-example-form" role="form" >
+				  <form action="${contextPath}/che/insert" method="post"  class="bs-example bs-example-form" role="form" >
 					  <div class="input-group">
 						  <span class="input-group-addon">宿舍</span>
 						  <select id="dorm" name="dormId" class="form-control">

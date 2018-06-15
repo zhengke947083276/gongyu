@@ -18,7 +18,7 @@
 		  //加载学院
 		  $(function () {
 			 $.ajax({
-                 url:"/fac/selectAll",
+                 url:"${contextPath}/fac/selectAll",
                  type:"get",
 				 success:function (result) {
 					 //2.解析学院信息
@@ -39,7 +39,7 @@
           //点击获取专业
           function build_Spe(facId){
               $.ajax({
-                  url:"/spe/selectByFacId?facId="+facId,
+                  url:"${contextPath}/spe/selectByFacId?facId="+facId,
                   type:"get",
                   success:function (result) {
                       //2.解析专业信息
@@ -77,7 +77,7 @@
 		  <div class="b_2" style="width: 1310px;height: 650px">
 			  <h2 class="text-center">修改学生</h2>
 			  <div style="padding: 0px 540px 0px;text-align: center">
-				  <form action="/stu/updateUpload" class="bs-example bs-example-form" role="form" method="post" enctype="multipart/form-data">
+				  <form action="${contextPath}/stu/updateUpload" class="bs-example bs-example-form" role="form" method="post" enctype="multipart/form-data">
 					  <input type="hidden" class="form-control"  name="stuId" value="${tblStudent.stuId}">
 
 					  <div class="input-group">
