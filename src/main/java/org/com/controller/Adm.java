@@ -27,8 +27,6 @@ public class Adm {
     @RequestMapping(value = "/adm/login")
     public String login(HttpServletRequest request,HttpSession session,HttpServletResponse response,Integer day) {
         System.out.println(day);
-        String contextPath = servletContext.getContextPath();
-        servletContext.setAttribute("contextPath",contextPath);
         String admUser = request.getParameter("admUser");
         String admPass = request.getParameter("admPass");
         if (day!=null && !day.equals("")){//用户勾选了7天自动登录
@@ -102,6 +100,9 @@ public class Adm {
 
     @RequestMapping("/")
     public String autoLogin(HttpServletRequest request) throws Exception {
+        //设置项目根路径
+        String contextPath = servletContext.getContextPath();
+        servletContext.setAttribute("contextPath",contextPath);
         //获取cookie中存放的数据
         Cookie[] cookies = request.getCookies();
         String admUser=null;

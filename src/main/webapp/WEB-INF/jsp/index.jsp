@@ -3,7 +3,7 @@
 <html>
   <head>
 	  <title>首页</title>
-      <link rel="stylesheet" type="text/css" href="/css/index.css"/>
+      <link rel="stylesheet" type="text/css" href="${contextPath}/css/index.css"/>
       <!-- 新 Bootstrap 核心 CSS 文件 -->
       <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
       <!-- 可选的Bootstrap主题文件（一般不使用） -->

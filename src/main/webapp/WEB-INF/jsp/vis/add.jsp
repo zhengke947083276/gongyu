@@ -3,8 +3,8 @@
 <html>
   <head>
 	  <title></title>
-	<link rel="stylesheet" type="text/css" href="/css/index.css"/>
-	  <script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="${contextPath}/css/index.css"/>
+	  <script type="text/javascript" src="${contextPath}/js/jquery-3.3.1.js"></script>
 	  <!-- 新 Bootstrap 核心 CSS 文件 -->
 	  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	  <!-- 可选的Bootstrap主题文件（一般不使用） -->

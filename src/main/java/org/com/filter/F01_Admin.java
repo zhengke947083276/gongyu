@@ -1,14 +1,18 @@
 package org.com.filter;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class F01_Admin implements HandlerInterceptor {
+    @Autowired
+    ServletContext servletContext;
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
 
@@ -18,7 +22,7 @@ public class F01_Admin implements HandlerInterceptor {
         if (user==null){
             //如果用户没转发向到
 //            "/WEB-INF/jsp/index.jsp"
-            httpServletResponse.sendRedirect("/");
+            httpServletResponse.sendRedirect(servletContext.getAttribute("contextPath")+"/");
             return false;
         }
         return true;
